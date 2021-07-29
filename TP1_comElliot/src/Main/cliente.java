@@ -44,7 +44,7 @@ public class cliente {
 	
 	//Imprimir cliente
 	public static String imprimirCliente (cliente c) {
-		return " Nome: " + c.getNome() + "\n Endereco: " + c.getEndereco() + "\n Telefone:" + c.getTelefone();
+		return " Nome: " + c.getNome() + "\n Endereco: " + c.getEndereco() + "\n Telefone:" + c.getTelefone() + "\n";
 	}
 	
 	//Lista de Cliente
@@ -59,14 +59,4 @@ private static ArrayList<cliente> clienteLista = new ArrayList<cliente>();
 	public static void adicionarCliente (cliente c) {
 		clienteLista.add(c);
 	}
-	//Pesquisar pelo nome
-//	static public String pesquisarNome(String nome) {
-//		for (cliente c : clienteLista) {
-//			if(c.getNome().equals(nome)) {
-//				System.out.println("Cliente encontrado");
-//			}
-//		}
-//		return nome;
-//	}
-
 }

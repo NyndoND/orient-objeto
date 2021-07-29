@@ -4,21 +4,21 @@ import java.util.ArrayList;
 
 public class produto {
 	
-private static ArrayList<produto> estoque = new ArrayList<produto>();
+	private static ArrayList<produto> estoque = new ArrayList<produto>();
 	
-	//pegar listta
+	//Pegar estoque
 	public static ArrayList<produto> getEstoque() {
 		return estoque;
 	}
 	
-	//adicionar na lista
+	//adicionar no estoque
 	public static void adicionarProduto (produto p) {
 		estoque.add(p);
 	}
 	
 	//Deletar da lista 
 	public static void remover (produto p) {
-		estoque.remove(p); //Adicionar a lógica pra remover pelo título e verificar se tem estoque
+		estoque.remove(p); //Adicionar a lógica pra remover pelo título e verificar se tem estoque?
 	}
 	
 	private String nomeDoProduto;
@@ -38,10 +38,10 @@ private static ArrayList<produto> estoque = new ArrayList<produto>();
 	
 	//Imprimir produto
 	public static String imprimirProduto (produto p) {
-		return " Nome do Produto: " + p.getNome() + "\n Descricao: " + p.getDescricao() + "\n Valor de Compra: " + p.getValorDeCompra() +"\n Porcentagem de Lucro: " + p.getPorcentagem() + "\n Quantidade em estoque: " + p.getQuantidade();
+		return " Nome do Produto: " + p.getNome() + "\n Descricao: " + p.getDescricao() + "\n Valor de Compra: " + p.getValorDeCompra() +"\n Porcentagem de Lucro: " + p.getPorcentagem() + "\n Quantidade em estoque: " + p.getQuantidade() + "\n";
 	}
 
-//	Get and Set das Strings
+//	Get and Set do atributos
 	public String getNome() {
 		return nomeDoProduto;
 	}
