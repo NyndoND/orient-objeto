@@ -31,6 +31,10 @@ public class Venda {
 		getVendedor().setComissaoTotal(getVendedor().getComissaoTotal() + getComissaoVenda());
 	}
 	
+	public void acrescentarVendaMes () {
+		getLocal().setTotalVendasMes(getLocal().getTotalVendasMes() + getValorTotal());
+	}
+	
 	
 	public String toString() {
 		return " Cliente: " + cliente.getNome() + "\n Vendedor:" + vendedor.getNome() + "\n Data da Compra: " + dataCompra + "\n Brinquedo: " + brinquedo.getNome() +"\n Quantidade: "+ qtdVenda +"\n Filial: " + local.getLocal() + "\n Valor Total: " + valorTotal + "\n Forma de pagamento: " + formaPagamento + "\n" + local ;
@@ -50,6 +54,7 @@ public class Venda {
 		calcularValorTotal();
 		calcularComissao();
 		acrescentarComissão();
+		acrescentarVendaMes();
 	}
 	
 	//getters and Setters

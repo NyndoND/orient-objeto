@@ -105,5 +105,13 @@ public class Main {
 	System.out.println("\n --------------------------------------------------------------------------------------------\n");
 	Cliente.listarClientes();
 	System.out.println("\n ---------------------FIM-----------------------------------------------------------------------\n");
+	f1.buscaBrinquedosNome("uiui");
+	f1.buscaBrinquedosNome("dinossauro");
+	f1.buscaBrinquedosCod(22356262);
+	Cliente.buscaClienteNome("uiui");
+	Cliente.buscaClienteNome("Renann");
+	f1.buscaVendedorNome("Andre");
+	f1.buscaVendedorCpf(32132132);
+	f1.buscaVendedorSalario(1600);
 	}
 }

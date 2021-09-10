@@ -13,6 +13,41 @@ public class Cliente extends PessoaFisica {
 			i++;
 			}
 	}
+	
+	//Busca de CLientes pelo nome
+	public static void buscaClienteNome(String nome) {
+		int i=0;
+		int IndCli = 0;
+		for(Cliente c : getListaCliente()) {
+			if (c.getNome().equals(nome)) {
+				IndCli = i;
+			} else {
+				i++;
+			}
+		} 
+		if (i == getListaCliente().size()) {
+			System.out.println("\n Cliente não encontrado!!");
+		} else { System.out.println(getListaCliente().get(IndCli).toString());
+		}
+	}
+	
+	//Busca de Cliente por CPF
+	public void buscaClienteCpf(int cpf) {
+		int i=0;
+		int IndCli = 0;
+		for(Cliente c : getListaCliente()) {
+			if (c.getCpf() == cpf) {
+				IndCli = i;
+			} else {
+				i++;
+			}
+		} 
+		if (i == getListaCliente().size()) {
+			System.out.println("\n Cliente não encontrado!!");
+		} else { System.out.println(getListaCliente().get(IndCli).toString());
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "Nome: " + nome + "\n Telefone: " + telefone + "\n Endereco: " + endereco + "\n cpf: " + cpf + "\n Credito Disp.: " + credito;
@@ -38,5 +73,8 @@ public class Cliente extends PessoaFisica {
 	}
 	public static void addCliente(Cliente c) {
 		listaCliente.add(c);
+	}
+	public static void removeCliente(Cliente c) {
+		listaCliente.remove(c);
 	}
 }
