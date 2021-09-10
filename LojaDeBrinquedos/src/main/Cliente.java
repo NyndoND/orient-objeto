@@ -6,6 +6,13 @@ public class Cliente extends PessoaFisica {
 	private double credito;
 	private static ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
 	
+	public static void listarClientes() {
+		int i=0;
+		for (Cliente c : getListaCliente()) {
+			System.out.println("\n----Cliente N°"+ i + "----\n" + c.toString());
+			i++;
+			}
+	}
 	@Override
 	public String toString() {
 		return "Nome: " + nome + "\n Telefone: " + telefone + "\n Endereco: " + endereco + "\n cpf: " + cpf + "\n Credito Disp.: " + credito;

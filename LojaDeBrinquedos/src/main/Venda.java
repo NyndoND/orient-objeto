@@ -9,9 +9,35 @@ public class Venda {
 	private Vendedor vendedor;
 	private Cliente cliente;
 	private Brinquedo brinquedo;
-	private Filial local; //preciso arepsentar o local do Objeto Filial
-	private double comissaoTotal;
+	private Filial local; 
+	private double comissaoVenda;
+	private double valorTotal;
 	
+	
+	
+	public void atualizarEstoqueBrinquedo() {
+		getLocal().getEstoqueBrinquedo().remove(brinquedo);
+	}
+	
+	public void calcularValorTotal() {
+		setValorTotal(qtdVenda * brinquedo.getValor());
+	}
+	
+	public void calcularComissao() {
+		setComissaoVenda(brinquedo.getValor() * brinquedo.getComissaoVendedor() * qtdVenda);
+	}
+	
+	public void acrescentarComissão () {
+		getVendedor().setComissaoTotal(getVendedor().getComissaoTotal() + getComissaoVenda());
+	}
+	
+	
+	public String toString() {
+		return " Cliente: " + cliente.getNome() + "\n Vendedor:" + vendedor.getNome() + "\n Data da Compra: " + dataCompra + "\n Brinquedo: " + brinquedo.getNome() +"\n Quantidade: "+ qtdVenda +"\n Filial: " + local.getLocal() + "\n Valor Total: " + valorTotal + "\n Forma de pagamento: " + formaPagamento + "\n" + local ;
+	}
+
+
+
 	//construtor 
 	public Venda(Vendedor v, Cliente c, Brinquedo b, int qtdVenda, Filial f) {
 		this.vendedor = v;
@@ -19,6 +45,11 @@ public class Venda {
 		this.brinquedo = b;
 		this.qtdVenda = qtdVenda;
 		this.local = f;
+		
+		atualizarEstoqueBrinquedo();
+		calcularValorTotal();
+		calcularComissao();
+		acrescentarComissão();
 	}
 	
 	//getters and Setters
@@ -64,11 +95,19 @@ public class Venda {
 	public void setLocal(Filial local) {
 		this.local = local;
 	}
-	public double getComissaoTotal() {
-		return comissaoTotal;
+	public double getComissaoVenda() {
+		return comissaoVenda;
 	}
-	public void setComissaoTotal(double comissaoTotal) {
-		this.comissaoTotal = comissaoTotal;
+	public void setComissaoVenda(double comissaoVenda) {
+		this.comissaoVenda = comissaoVenda;
+	}
+
+	public double getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = valorTotal;
 	}
 	
 }

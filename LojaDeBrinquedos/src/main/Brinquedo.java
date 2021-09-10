@@ -9,11 +9,7 @@ public abstract class Brinquedo {
 	protected double lucro;
 	protected int codigo;
 	
-	//constructorcfxbhxdfg xdgh xdghzsdgr
-	
-	
-	
-	
+	//construtor
 	public Brinquedo(String nome, double valor, String descricao, int faixaEtaria, double comissaoVendedor,
 			double lucro, int codigo) {
 		super();
@@ -25,6 +21,7 @@ public abstract class Brinquedo {
 		this.lucro = lucro;
 		this.codigo = codigo;
 	}
+	
 	//getters e setters 
 	public String getNome() {
 		return nome;

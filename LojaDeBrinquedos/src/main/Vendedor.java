@@ -9,8 +9,10 @@ public class Vendedor extends PessoaFisica{
 	
 	@Override
 	public String toString() {
-		return "Nome:" + nome + "\n Telefone: " + telefone + "\n Endereco: " +  endereco + "\n CPF: " + cpf + "\n Data de Contratacao: " +  dataContratacao + "\n Salario: " + salario;
+		return "Nome:" + nome + "\n Telefone: " + telefone + "\n Endereco: " +  endereco + "\n CPF: " + cpf + "\n Data de Contratacao: " +  dataContratacao + "\n Salario: " + salario +"\n Comissao Acumulada: " + comissaoTotal;
 	}
+	
+	
 	//construtor
 	public Vendedor(String nome, int telefone, String endereco, int cpf, Date dataContratacao, double salario) {
 		this.nome = nome;  //Note que eu estou usando uma forma diferente do construtor de Cliente, mas os dois funcionam da mesma forma

@@ -4,6 +4,7 @@ public class Eletronico extends Brinquedo {
 	private String fonteDeEnergia;
 	private int garantia;
 	
+	//método para formatar a impressão desse objeto
 	public String toString() {
 		return "Nome: "+nome+ "\n Valor: " +valor+ "\n Descricao: "+descricao+ "\n Codigo: " +codigo+ "\n Fonte de enegia: " + fonteDeEnergia+ "\n Garantia: " +garantia;
 	}

@@ -8,15 +8,41 @@ public class Filial {
 	private double totalVendasMes;
 	private double lucroMes;
 	private int estoqueBrinquedoQtd;
-	//zdxgzx nrztzxeb x
 	private ArrayList<Brinquedo> estoqueBrinquedo = new ArrayList<Brinquedo>();
 	private ArrayList<Vendedor> listaVendedor= new ArrayList<Vendedor>();
 	private ArrayList<Venda> listaVenda = new ArrayList<Venda>();
 	
+	
 	public String toString() {
-		return "Localizacao: " +local+ "\n Nome do Gerente: " + gerente.nome + "\n Estoque de Brinquedos: " + estoqueBrinquedoQtd + "\n Array" + estoqueBrinquedo;
+		return " Localizacao: " +local+ "\n Nome do Gerente: " + gerente.nome + "\n Estoque de Brinquedos: " + estoqueBrinquedoQtd;
 	}
-
+	
+	//Listar o estoqueBrinquedo
+	public void listarBrinquedos () {
+		int i = 0;
+		for (Brinquedo b : this.getEstoqueBrinquedo()) {
+		System.out.println("\n----Brinquedo N°"+ i + "----\n" + b.toString());
+		i++;
+		}
+	}
+	
+	//Listar a listaVendedor
+	public void listarVendedores() {
+		int i=0;
+		for (Vendedor v : this.getListaVendedor()) {
+			System.out.println("\n----Vendedor N°"+ i + "----\n" + v.toString());
+			i++;
+			}
+	}
+	
+	//Listar a listaVenda
+	public void listarVendas() {
+		int i=0;
+		for (Venda v : this.getListaVenda()) {
+			System.out.println("\n----Venda N°"+ i + "----\n" + v.toString());
+			i++;
+			}
+	}
 	//construtor
 	public Filial(String l, Vendedor g) {
 		this.local = l;
