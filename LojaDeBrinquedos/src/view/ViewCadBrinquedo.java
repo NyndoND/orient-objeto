@@ -47,7 +47,12 @@ public abstract class ViewCadBrinquedo extends JInternalFrame{
 			 });
 		 barra.add(botao);
 		 botao = null;
+		 
+		 //Essa barra de butoes está atrás da caixa de texto, pois no final eu coloco
+		 // que todos os textos vao ficar na posição NORTH tbm, futuramente eu posso 
+		 // arrumar isso, mas por enquanto eu não achei esa barra muito útil
 		 add(barra, BorderLayout.NORTH);
+		 //
 		 
 		 //adicionando os campos para preencher
 		 painel = new JPanel();

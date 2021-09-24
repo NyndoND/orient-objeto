@@ -10,6 +10,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import main.DadoAleatorio;
+
 public class DesktopMenu extends JFrame{
 	
 	private JDesktopPane desktop = new JDesktopPane();
@@ -20,6 +22,7 @@ public class DesktopMenu extends JFrame{
 	}
 	
 	public DesktopMenu() {
+		DadoAleatorio.addDados();
 		 int inset = 50;
 		 Dimension tamanhoTela = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds(inset, inset, tamanhoTela.width-100, tamanhoTela.height-100);
@@ -157,70 +160,75 @@ public class DesktopMenu extends JFrame{
 		mFilho = new JMenu("Pessoa");
 		
 		mItem = new JMenuItem("Cliente");
+		mItem.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try{
+					System.out.println("Cliente");
+					JInternalFrame frame = new ViewListarCliente();
+					frame.setVisible(true);
+					desktop.add(frame);
+					frame.toFront();
+				}catch(Exception r){
+					r.printStackTrace();
+				}
+			}
+		});
 		mFilho.add(mItem);
 		mItem = new JMenuItem("Vendedor");
+		mItem.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try{
+					System.out.println("Vendedor");
+					JInternalFrame frame = new ViewListarVendedor();
+					frame.setVisible(true);
+					desktop.add(frame);
+					frame.toFront();
+				}catch(Exception r){
+					r.printStackTrace();
+				}
+			}
+		});
 		mFilho.add(mItem);
 		
 		mPrincipal.add(mFilho);
 		mFilho = null;
-		
-		mFilho = new JMenu("Brinquedo");
-		
-		mItem = new JMenuItem("Eletronico");
+
+		mItem = new JMenuItem("Brinquedo");
 		mItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try{
-					System.out.println("Eletronico");
+					System.out.println("Brinquedo");
+					JInternalFrame frame = new ViewListarBrinquedo();
+					frame.setVisible(true);
+					desktop.add(frame);
+					frame.toFront();
 				}catch(Exception r){
 					r.printStackTrace();
 				}
 			}
 		});
 		
-		mFilho.add(mItem);
+		mPrincipal.add(mItem);
 		mItem = null;
 		
-		mItem = new JMenuItem("Carta");
+		mItem = new JMenuItem("Vendas");
 		mItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try{
-					System.out.println("Carta");
+					System.out.println("Vendas");
+					JInternalFrame frame = new ViewListarVenda();
+					frame.setVisible(true);
+					desktop.add(frame);
+					frame.toFront();
 				}catch(Exception r){
 					r.printStackTrace();
 				}
 			}
 		});
 		
-		mFilho.add(mItem);
+		mPrincipal.add(mItem);
 		mItem = null;
-		
-		mItem = new JMenuItem("Pelucia");
-		mItem.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				try{
-					System.out.println("Pelucia");
-				}catch(Exception r){
-					r.printStackTrace();
-				}
-			}
-		});
-		
-		mFilho.add(mItem);
-		mItem = null;
-		
-		mItem = new JMenuItem("Tabuleiro");
-		mItem.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				try{
-					System.out.println("Tabuleiro");
-				}catch(Exception r){
-					r.printStackTrace();
-				}
-			}
-		});
-		
-		mFilho.add(mItem);
-		mPrincipal.add(mFilho);
+
 		menubar.add(mPrincipal);
 		
 		

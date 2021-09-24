@@ -64,5 +64,8 @@ public class DadoAleatorio {
 		f2.addVenda(vd4);
 		f2.addVenda(vd5);
 		f2.addVenda(vd6);
+		
+		Filial.addFilial(f1);
+		Filial.addFilial(f2);
 	}
 }

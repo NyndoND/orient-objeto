@@ -11,7 +11,7 @@ public class Filial {
 	private ArrayList<Brinquedo> estoqueBrinquedo = new ArrayList<Brinquedo>();
 	private ArrayList<Vendedor> listaVendedor= new ArrayList<Vendedor>();
 	private ArrayList<Venda> listaVenda = new ArrayList<Venda>();
-	
+	private static ArrayList<Filial> listaFilial = new ArrayList<Filial>();
 	
 	public String toString() {
 		return " Localizacao: " +local+ "\n Nome do Gerente: " + gerente.nome + "\n Estoque de Brinquedos: " + estoqueBrinquedoQtd + "\n Total Venda Mes: " + totalVendasMes;
@@ -205,5 +205,17 @@ public class Filial {
 	}
 	public void removeVenda (Venda a) {
 		listaVenda.remove(a);
+	}
+	public static ArrayList<Filial> getListaFilial() {
+		return listaFilial;
+	}
+	public static void setListaFilial(ArrayList<Filial> listaFilial) {
+		Filial.listaFilial = listaFilial;
+	}
+	public static void addFilial (Filial a) {
+		listaFilial.add(a);
+	}
+	public static void removeFilial (Filial a) {
+		listaFilial.remove(a);
 	}
 }
