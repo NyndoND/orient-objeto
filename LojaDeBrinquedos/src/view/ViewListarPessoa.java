@@ -46,6 +46,7 @@ public abstract class ViewListarPessoa extends JInternalFrame{
 		alterar = new JButton("Alterar");
 		alterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				System.out.println("Alterou alguem aí");
 			}
 		});
@@ -53,6 +54,8 @@ public abstract class ViewListarPessoa extends JInternalFrame{
 		excluir = new JButton("Excluir");
 		excluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
 				System.out.println("Excluiu alguem aí");
 			}
 		});
