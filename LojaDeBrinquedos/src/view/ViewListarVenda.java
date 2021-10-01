@@ -60,7 +60,12 @@ public class ViewListarVenda extends JInternalFrame{
 				add(botoes, BorderLayout.SOUTH);
 				
 				//Criando a tabela 
-				tabela = new JTable();
+				tabela = new JTable(){
+					@Override
+					public boolean isCellEditable(int row, int column) {                
+		                return false;               
+					};
+				};
 				DefaultTableModel model = new DefaultTableModel();
 				tabela.setModel(model);
 				tabela.setBackground(Color.LIGHT_GRAY);

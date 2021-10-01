@@ -8,11 +8,13 @@ import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import controle.ControleVenda;
 import main.Brinquedo;
 import main.Cliente;
 import main.Filial;
@@ -27,9 +29,12 @@ public class ViewCadVenda {
 	JTextField qtdField = new JTextField();
 	JLabel imagem1 = new JLabel("");
 	JLabel imagem2 = new JLabel("");
+	JButton realizar = new JButton ("Realizar Venda");
+	
 	
 	public ViewCadVenda(JDesktopPane d) {
 		
+		ControleVenda controle = new ControleVenda();
 		//Titulo
 		JLabel titulo = new JLabel("Fun Happy");
 		titulo.setBounds(30,30,300,60);
@@ -39,7 +44,6 @@ public class ViewCadVenda {
 		d.add(titulo);
 		
 		//Adicionando os campos para preencher
-		
 		JLabel nomeProduto = new JLabel("Nome do Produto:");
 		JLabel nomeCliente = new JLabel("Nome do Cliente:");
 		JLabel nomeVendedor = new JLabel("Nome do Vendedor:");
@@ -58,8 +62,6 @@ public class ViewCadVenda {
 		
 		qtd.setBounds(30, 300, 300, 30);
 		qtd.setFont(new Font("Algerian", Font.BOLD, 30));
-		
-		
 
 		nomeProduto.setBounds(30, 350, 300, 30);
 		nomeProduto.setFont(new Font("Algerian", Font.BOLD, 30));
@@ -93,6 +95,19 @@ public class ViewCadVenda {
 		d.add(clienteField);
 		d.add(vendedorField);
 		d.add(qtdField);
+		
+		realizar.setBounds(320, 400, 300, 30);
+		realizar.setBackground(Color.ORANGE);
+		realizar.setForeground(Color.DARK_GRAY);
+		realizar.setFont(new Font("Algerian", Font.BOLD, 20));
+		realizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Venda cadastrada com sucesso!");
+				controle.cadastrarVenda(getFilialField(),getClienteField (),getVendedorField(), getQtdField(), getBrinquedoField());
+			}
+		});
+		
+		d.add(realizar);
 		
 		//adicionando imagens 
 		imagem1.setBounds(680, 0, 495, 500);
@@ -160,4 +175,28 @@ public class ViewCadVenda {
 		return nomes.toArray();
 	}
 
+	public String getFilialField() {
+		String nome = filialField.getSelectedItem().toString();
+		return nome;
+	}
+	
+	public String getVendedorField() {
+		String nome = vendedorField.getSelectedItem().toString();
+		return nome;
+	}
+	
+	public String getBrinquedoField() {
+		String nome = produtoField.getSelectedItem().toString();
+		return nome;
+	}
+
+	public String getClienteField () {
+		String nome = clienteField.getSelectedItem().toString();
+		return nome;
+	}
+	
+	public int getQtdField() {
+		int qtd = Integer.parseInt(qtdField.getText());
+		return qtd;
+	}
 }

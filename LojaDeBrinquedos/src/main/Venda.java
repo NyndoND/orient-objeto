@@ -6,10 +6,10 @@ public class Venda {
 	private String formaPagamento;
 	private int qtdVenda;
 	private Date dataCompra;
-	private Vendedor vendedor;
-	private Cliente cliente;
-	private Brinquedo brinquedo;
-	private Filial local; 
+	private Vendedor vendedor; private String nomeVendedor;
+	private Cliente cliente; private String nomeCliente;
+	private Brinquedo brinquedo; private String nomeBrinquedo;
+	private Filial local; private String nomeFilial;
 	private double comissaoVenda;
 	private double valorTotal;
 	
@@ -55,6 +55,15 @@ public class Venda {
 		calcularComissao();
 		acrescentarComissão();
 		acrescentarVendaMes();
+	}
+	
+	//construtor criado de última hora pois percebi que não faz sentido eu criar usando os objetos em si 
+	public Venda(String nomeF, String nomeC, String nomeV, int qtdVenda, String nomeB ) {
+		this.nomeVendedor = nomeV;
+		this.nomeCliente = nomeC;
+		this.nomeBrinquedo = nomeB;
+		this.nomeFilial = nomeF;
+		this.qtdVenda = qtdVenda;
 	}
 	
 	//getters and Setters
