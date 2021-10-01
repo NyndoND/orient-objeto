@@ -19,6 +19,7 @@ public class DesktopMenu extends JFrame{
 	
 	public static void main(String [] args) {
 		DesktopMenu teste = new DesktopMenu();
+		
 	}
 	
 	public DesktopMenu() {
@@ -28,7 +29,9 @@ public class DesktopMenu extends JFrame{
 		setBounds(inset, inset, tamanhoTela.width-100, tamanhoTela.height-100);
 		setTitle("Loja de Brinquedos");
 		setContentPane(desktop);
+		desktop.setBackground(new Color(250, 230, 0));
 		
+		//Criando a barra de ferramentas
 		JMenu mPrincipal = new JMenu("Cadastrar");
 		mPrincipal.setMnemonic(KeyEvent.VK_Q); // pelo jeito a tecla atalho não funciona para o esse item MenuPrincipal
 		
@@ -235,6 +238,10 @@ public class DesktopMenu extends JFrame{
 		setJMenuBar(menubar);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+		
+		// Criando a tela de Venda
+		ViewCadVenda vendaView = new ViewCadVenda(desktop);
+		
 		
 	}
 	
