@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,7 +20,9 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
-public abstract class ViewCadPessoa extends JInternalFrame {
+
+
+public abstract class ViewCadPessoa extends JInternalFrame implements ActionListener{
 	
 	static final int xPosition = 30, yPosition = 30;
 	 private JButton botao = null;
@@ -32,6 +35,7 @@ public abstract class ViewCadPessoa extends JInternalFrame {
 	 private JLabel label;
 	 
 	 private  GridBagConstraints gbc;
+	 private JButton confirmar;
 	 
 	 public ViewCadPessoa () {
 		 super("Cadastrar", true, true, true, true);
@@ -85,16 +89,13 @@ public abstract class ViewCadPessoa extends JInternalFrame {
 		 JPanel botoes = new JPanel();
 		 botoes.setLayout(new GridLayout());
 		 
-		 JButton confirmar = new JButton("Confirmar");
-		 confirmar.addActionListener(new ActionListener() {			
-				public void actionPerformed(ActionEvent e) {
-					System.out.println(getTxTelefone());
-				}
-			});
+		 confirmar = new JButton("Confirmar");
+		 confirmar.addActionListener(this);
+				
 		 JButton cancelar = new JButton("Cancelar");
 		 cancelar.addActionListener(new ActionListener() {			
 				public void actionPerformed(ActionEvent e) {
-					System.out.println(getTxTelefone());
+				dispose();
 				}
 			});
 		 botoes.add(confirmar);
@@ -119,4 +120,9 @@ public abstract class ViewCadPessoa extends JInternalFrame {
 	public  GridBagConstraints getGbc() {
 		return gbc;
 	}
+	public JButton getConfirmar() {
+		return confirmar;
+	}
+	
+	
 }
