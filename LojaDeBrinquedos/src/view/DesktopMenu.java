@@ -14,7 +14,7 @@ import main.DadoAleatorio;
 
 public class DesktopMenu extends JFrame{
 	
-	private JDesktopPane desktop = new JDesktopPane();
+	private static JDesktopPane desktop = new JDesktopPane();
 	private JMenuBar menubar = new JMenuBar();
 	
 	public static void main(String [] args) {
@@ -244,5 +244,17 @@ public class DesktopMenu extends JFrame{
 		
 		
 	}
+
+	public static void addDesktop(JInternalFrame frame) {
+		desktop.add(frame);
+	}
 	
+	public JDesktopPane getDesktop() {
+		return desktop;
+	}
+
+	public static void setDesktop(JDesktopPane desktop) {
+		DesktopMenu.desktop = desktop;
+	}
+
 }

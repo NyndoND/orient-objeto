@@ -4,7 +4,7 @@ public abstract class PessoaFisica {
 	protected String nome;
 	protected int telefone;
 	protected String endereco;
-	protected int cpf;
+	protected int cpf = 0;
 	
 	//getters and setters
 	public String getNome() {

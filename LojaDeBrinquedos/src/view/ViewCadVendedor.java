@@ -12,7 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-
+import controle.ControleFilial;
 import controle.ControleVendedor;
 import main.Filial;
 
@@ -33,6 +33,7 @@ public class ViewCadVendedor extends ViewCadPessoa{
 	private GridBagConstraints gbc;
 	
 	private ControleVendedor controle = new ControleVendedor();
+	private ControleFilial controleFil = new ControleFilial();
 	
 	public ViewCadVendedor() {
 		super();
@@ -74,11 +75,11 @@ public class ViewCadVendedor extends ViewCadPessoa{
 		
 	}
 	
-	public int getTxCpf() {
+	public int getTxCpfInt() {
 		return Integer.parseInt(txCpf.getText());
 	}
 	
-	public Date getTxData() {
+	public Date getTxDataDate() {
 		String data = txDataContratacao.getText();
 		Date dataFormat = null;
 		try {
@@ -89,32 +90,17 @@ public class ViewCadVendedor extends ViewCadPessoa{
 		return dataFormat;
 	}
 	
-	public Double getTxSalario() {
+	public Double getTxSalarioDouble() {
 		Double salario = Double.parseDouble(txSalario.getText());
 		return salario;
-	}
-	
-	public Filial getFilial() {
-		int i=0;
-		int IndFi = 0;
-		for (Filial fi : Filial.getListaFilial()) {
-			 if (fi.getLocal().equals(filialField.getSelectedItem())) {
-				 IndFi = i;
-			 } else {
-				 i++;
-			 }
-		}
-		Filial filial = Filial.getListaFilial().get(IndFi);
-		i=0;
-		return filial;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (getConfirmar() == e.getSource()) {
-		controle.cadastrarVendedor(getTxNome(), getTxTelefone(), getTxEndereco(),getTxCpf(),getTxData(),getTxSalario(),getFilial() );
-		dispose();
+		controle.cadastrarVendedor(getTxNomeString(), getTxTelefoneInt(), getTxEnderecoString(),getTxCpfInt(),getTxDataDate(),getTxSalarioDouble(),getFilialField().getSelectedIndex() );
 		e=null;
+		dispose();
 		}
 	}
 	
@@ -123,11 +109,43 @@ public class ViewCadVendedor extends ViewCadPessoa{
 	}
 	
 	public Object[] filialArray() {
-		ArrayList<String> nomes = new ArrayList<String>(); 
-		for (Filial f : Filial.getListaFilial()) {
-			nomes.add(f.getLocal());
-		}
-		return nomes.toArray();
+		return controleFil.toArrayFilialLocal();
 	}
+
+	public JTextField getTxCpf() {
+		return txCpf;
+	}
+
+	public void setTxCpf(JTextField txCpf) {
+		this.txCpf = txCpf;
+	}
+
+	public JTextField getTxSalario() {
+		return txSalario;
+	}
+
+	public void setTxSalario(JTextField txSalario) {
+		this.txSalario = txSalario;
+	}
+
+	public JTextField getTxDataContratacao() {
+		return txDataContratacao;
+	}
+
+	public void setTxDataContratacao(JTextField txDataContratacao) {
+		this.txDataContratacao = txDataContratacao;
+	}
+
+	public JComboBox<Object> getFilialField() {
+		return filialField;
+	}
+
+	public void setFilialField(JComboBox<Object> filialField) {
+		this.filialField = filialField;
+	}
+
+	
+	
+	
 	
 }

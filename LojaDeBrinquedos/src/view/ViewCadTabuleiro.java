@@ -1,9 +1,12 @@
 package view;
 
 import java.awt.GridBagConstraints;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import controle.ControleBrinquedo;
 
 public class ViewCadTabuleiro extends ViewCadBrinquedo{
 	
@@ -14,6 +17,8 @@ public class ViewCadTabuleiro extends ViewCadBrinquedo{
 	private JTextField txTempoMedio;
 	
 	private GridBagConstraints gbc;
+	
+	private ControleBrinquedo controle = new ControleBrinquedo();
 	
 	public ViewCadTabuleiro () {
 		super();
@@ -28,7 +33,7 @@ public class ViewCadTabuleiro extends ViewCadBrinquedo{
 		getPanel().add(tempoMedio, gbc);
 		
 		gbc.gridx++;
-		gbc.gridy = 7;
+		gbc.gridy = 8;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.anchor = GridBagConstraints.EAST;
 		
@@ -40,11 +45,38 @@ public class ViewCadTabuleiro extends ViewCadBrinquedo{
 		getPanel().add(txTempoMedio, gbc);
 	}
 	
-	public int getTxQtdJogadores () {
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (getConfirmar() == e.getSource()) {
+			controle.cadastrarTabuleiroIndex(getTxNomeString(), getTxValorDouble(), getTxDescricaoString(), getTxFaixaEtariaInt() ,getTxComissaoVendedorDouble() ,getTxLucroDouble(),getTxCodigoInt(), getTxQtdJogadoresInt (), getTxTempoMedioDouble(), getFilialField().getSelectedIndex() );
+			e=null;
+			dispose();
+			}
+	}
+	
+	public int getTxQtdJogadoresInt () {
 		return Integer.parseInt(txQtdJogadores.getText());
 	}
 	
-	public double getTxTempoMedio() {
+	public Double getTxTempoMedioDouble() {
 		return Double.parseDouble(txTempoMedio.getText());
 	}
+
+	public JTextField getTxQtdJogadores() {
+		return txQtdJogadores;
+	}
+
+	public void setTxQtdJogadores(JTextField txQtdJogadores) {
+		this.txQtdJogadores = txQtdJogadores;
+	}
+
+	public JTextField getTxTempoMedio() {
+		return txTempoMedio;
+	}
+
+	public void setTxTempoMedio(JTextField txTempoMedio) {
+		this.txTempoMedio = txTempoMedio;
+	}
+	
+	
 }

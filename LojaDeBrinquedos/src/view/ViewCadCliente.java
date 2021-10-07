@@ -15,8 +15,9 @@ public class ViewCadCliente extends ViewCadPessoa{
 
 	public void actionPerformed(ActionEvent e) {
 		if (getConfirmar()== e.getSource()) {
-			controle.cadastrarCliente(getTxNome(), getTxTelefone(), getTxEndereco());
+			controle.cadastrarCliente(getTxNomeString(), getTxTelefoneInt(), getTxEnderecoString());
 			e = null;
+			dispose();
 		}
 	}
 	

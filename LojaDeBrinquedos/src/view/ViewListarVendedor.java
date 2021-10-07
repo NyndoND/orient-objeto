@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.event.ActionEvent;
+
+import javax.swing.JInternalFrame;
 import javax.swing.table.DefaultTableModel;
 
 import main.Cliente;
@@ -14,19 +17,36 @@ public class ViewListarVendedor extends ViewListarPessoa{
 	}
 	@Override
 	public void listarDados(DefaultTableModel model) {
-		for (Filial c : Filial.getListaFilial() ) {
-			for (Vendedor v : c.getListaVendedor()) {
-				String nome = v.getNome();
-				int telefone = v.getTelefone();
-				String endereco = v.getEndereco();
-				
-				Object[] rowData = {nome, telefone, endereco};
-				
-				model.addRow(rowData);
-			}
+		getControleVen().modelListarVendedor(model);
+	}
+	
+	//Definindo o que cada botão faz quando a Tela Listar Vendedores
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(getCadastrar()== e.getSource()) {
+			JInternalFrame frame = new ViewCadVendedor();
+			DesktopMenu.addDesktop(frame);
+			frame.toFront();
+			frame.setVisible(true);
+		}
+		if (getAlterar()== e.getSource()) {
+			int indexObj = getTabela().getSelectedRow();
+			
+			ViewAlterarVendedor frame = new ViewAlterarVendedor(indexObj);
+			DesktopMenu.addDesktop(frame);
+			frame.toFront();
+			frame.setVisible(true);
+			dispose();
+		}
+		if (getExcluir()== e.getSource()) {
+			int indexObj = getTabela().getSelectedRow();
+			getControleVen().removerVendedorIndex(indexObj);
+			dispose();
 		}
 		
-		
-		
+	}
+	@Override
+	public void filtrarTabela(String digitado, DefaultTableModel model) {
+		getControleVen().filtrarVendedor(model, digitado);
 	}
 }

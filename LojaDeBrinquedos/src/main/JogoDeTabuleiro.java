@@ -8,10 +8,10 @@ public class JogoDeTabuleiro extends Brinquedo{
 		return "Nome: "+nome+ "\n Valor: " +valor+ "\n Descricao: "+descricao+ "\n Codigo: " +codigo+ "\n Quantidade de Jogadores: " + qtdJogadores+ "\n Tempo Medio: " +tempoMedio;
 	}
 	//constructor
-	public JogoDeTabuleiro(String nome, double valor, String descricao, int faixaEtaria, double comissaoVendedor, double lucro, int codigo, int quantosJogadores, double tempoMedio) {
+	public JogoDeTabuleiro(String nome, Double valor, String descricao, int faixaEtaria, Double comissaoVendedor, Double lucro, int codigo, int quantosJogadores, Double tempo) {
 		super(nome, valor, descricao, faixaEtaria, comissaoVendedor, lucro, codigo);
 		this.qtdJogadores = quantosJogadores;
-		this.tempoMedio = tempoMedio;
+		this.tempoMedio = tempo;
 	}
 	//getters and setters
 	public int getQuantosJogadores() {
@@ -23,7 +23,7 @@ public class JogoDeTabuleiro extends Brinquedo{
 	public double getTempoMedio() {
 		return tempoMedio;
 	}
-	public void setTempoMedio(double tempoMedio) {
+	public void setTempoMedio(Double tempoMedio) {
 		this.tempoMedio = tempoMedio;
 	}
 	

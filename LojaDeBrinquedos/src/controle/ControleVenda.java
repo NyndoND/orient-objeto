@@ -1,5 +1,8 @@
 package controle;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 import main.Brinquedo;
 import main.Cliente;
 import main.Filial;
@@ -11,7 +14,51 @@ public class ControleVenda {
 	public ControleVenda() {
 		
 	}
-
+	
+	public void modelListarVenda(DefaultTableModel model) {
+		for (Filial c : Filial.getListaFilial() ) {
+			for (Venda v : c.getListaVenda()) {
+				String vendedor = v.getVendedor().getNome();
+				String cliente = v.getCliente().getNome();
+				String brinquedo = v.getBrinquedo().getNome();
+				int quantidade = v.getQtdVenda();
+				String local = v.getLocal().getLocal();
+				
+				Object[] rowData = {vendedor, cliente, brinquedo, quantidade, local};
+				
+				model.addRow(rowData);
+			}
+		}
+	}
+	
+	public void filtrarVenda(DefaultTableModel model, String digitado) {
+		for (Filial c : Filial.getListaFilial() ) {
+			for (Venda v : c.getListaVenda()) {
+				if(v.getCliente().getNome().equalsIgnoreCase(digitado)) {
+					String vendedor = v.getVendedor().getNome();
+					String cliente = v.getCliente().getNome();
+					String brinquedo = v.getBrinquedo().getNome();
+					int quantidade = v.getQtdVenda();
+					String local = v.getLocal().getLocal();
+				
+					Object[] rowData = {vendedor, cliente, brinquedo, quantidade, local};
+				
+					model.addRow(rowData);
+				} else if (v.getVendedor().getNome().equalsIgnoreCase(digitado)) {
+					String vendedor = v.getVendedor().getNome();
+					String cliente = v.getCliente().getNome();
+					String brinquedo = v.getBrinquedo().getNome();
+					int quantidade = v.getQtdVenda();
+					String local = v.getLocal().getLocal();
+				
+					Object[] rowData = {vendedor, cliente, brinquedo, quantidade, local};
+				
+					model.addRow(rowData);
+				}
+			}
+		}
+	}
+	
 	public void cadastrarVenda(String f, String c, String v, int qtd, String b) {
 		int i = 0;
 		int IndFi = 0;
@@ -30,7 +77,7 @@ public class ControleVenda {
 		Filial filial = Filial.getListaFilial().get(IndFi);
 		i=0;
 		
-		// pegando o obajeto CLiente
+		// pegando o objeto CLiente
 		for (Cliente cl : Cliente.getListaCliente()) {
 			if (cl.getNome().equals(c)) {
 				IndC = i;
@@ -52,7 +99,7 @@ public class ControleVenda {
 		Vendedor vendedor = filial.getListaVendedor().get(IndV);
 		i=0;
 		
-		//pegando o objeto B
+		//pegando o objeto Brinquedo
 		for (Brinquedo br : filial.getEstoqueBrinquedo()) {
 			if (br.getNome().equals(b)) {
 				IndB = i;
@@ -63,7 +110,10 @@ public class ControleVenda {
 		Brinquedo brinquedo = filial.getEstoqueBrinquedo().get(IndB);
 		i=0;
 		
+		// Contruindo a nova Venda e adicionando ela na lista da filial certa
 		Venda vendaNova = new Venda(vendedor, cliente, brinquedo, qtd, filial);
 		filial.getListaVenda().add(vendaNova);
+		JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!", "Concluído", JOptionPane.INFORMATION_MESSAGE);
+
 	}
 }

@@ -44,7 +44,7 @@ public abstract class ViewCadPessoa extends JInternalFrame implements ActionList
 		 
 		 //Adicionando a barra de botoes 
 		 barra = new JToolBar();
-		 botao = new JButton(new IconeJButton().getIconeCadastrar());
+		 botao = new JButton(new IconeJButton().getIconeFiltrar());
 		 botao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("cadastrar chama nenem");
@@ -95,7 +95,7 @@ public abstract class ViewCadPessoa extends JInternalFrame implements ActionList
 		 JButton cancelar = new JButton("Cancelar");
 		 cancelar.addActionListener(new ActionListener() {			
 				public void actionPerformed(ActionEvent e) {
-				dispose();
+					dispose();
 				}
 			});
 		 botoes.add(confirmar);
@@ -104,14 +104,14 @@ public abstract class ViewCadPessoa extends JInternalFrame implements ActionList
 		 add(painel, BorderLayout.NORTH);
 	 }
 	 
-	 public String getTxNome() {
+	 public String getTxNomeString() {
 		 return txNome.getText();
 	 }
 	 
-	 public int getTxTelefone() {
+	 public int getTxTelefoneInt() {
 		 return Integer.parseInt(txTelefone.getText());
 	 }
-	 public String getTxEndereco() {
+	 public String getTxEnderecoString() {
 		 return txEndereco.getText();
 	 }
 	public JPanel getPanel() {
@@ -122,6 +122,30 @@ public abstract class ViewCadPessoa extends JInternalFrame implements ActionList
 	}
 	public JButton getConfirmar() {
 		return confirmar;
+	}
+
+	public JTextField getTxNome() {
+		return txNome;
+	}
+
+	public JTextField getTxTelefone() {
+		return txTelefone;
+	}
+
+	public JTextField getTxEndereco() {
+		return txEndereco;
+	}
+
+	public void setTxNome(JTextField txNome) {
+		this.txNome = txNome;
+	}
+
+	public void setTxTelefone(JTextField txTelefone) {
+		this.txTelefone = txTelefone;
+	}
+
+	public void setTxEndereco(JTextField txEndereco) {
+		this.txEndereco = txEndereco;
 	}
 	
 	

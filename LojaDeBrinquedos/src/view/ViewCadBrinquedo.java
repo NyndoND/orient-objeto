@@ -7,14 +7,18 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
-public abstract class ViewCadBrinquedo extends JInternalFrame{
+import controle.ControleFilial;
+
+public abstract class ViewCadBrinquedo extends JInternalFrame implements ActionListener{
 	
 	static final int xPosition = 30, yPosition = 30;
 	 private JButton botao = null;
@@ -30,11 +34,16 @@ public abstract class ViewCadBrinquedo extends JInternalFrame{
 	 private JTextField txCodigo = null;
 	 private JLabel label;
 	 
+	private JComboBox<Object> filialField;
+	 
 	 private  GridBagConstraints gbc;
+	 private JButton confirmar;
+	 
+	 private ControleFilial controleFil = new ControleFilial();
 	 
 	 public ViewCadBrinquedo (){
 		 super("Cadastrar", true, true, true, true);
-		 setSize(800,250);
+		 setSize(800,300);
 		 setLocation(xPosition, yPosition);
 		 
 		 //Adicionando a barra de botoes 
@@ -83,6 +92,9 @@ public abstract class ViewCadBrinquedo extends JInternalFrame{
 		 gbc.gridy++;
 		 label = new JLabel("Codigo:  ");
 		 painel.add(label, gbc);
+		 gbc.gridy++;
+		 label = new JLabel("Filial:  ");
+		 painel.add(label, gbc);
 		 gbc.gridy = 0;
 		 
 		 gbc.gridx++;
@@ -116,20 +128,22 @@ public abstract class ViewCadBrinquedo extends JInternalFrame{
 		 txCodigo = new JTextField(50);
 		 painel.add(txCodigo, gbc);
 		 
+		 gbc.gridy++;
+		 filialField = new JComboBox<Object>();
+		 filialField.setModel(filialComboBox());
+		 painel.add(filialField, gbc);
+		 
 		//Adiconando os botões principais CONFIRMAR E CANCELAR
 		 JPanel botoes = new JPanel();
 		 botoes.setLayout(new GridLayout());
 		 
-		 JButton confirmar = new JButton("Confirmar");
-		 confirmar.addActionListener(new ActionListener() {			
-				public void actionPerformed(ActionEvent e) {
-					System.out.println(getTxDescricao());
-				}
-			});
+		 confirmar = new JButton("Confirmar");
+		 confirmar.addActionListener(this);
+		 
 		 JButton cancelar = new JButton("Cancelar");
 		 cancelar.addActionListener(new ActionListener() {			
 				public void actionPerformed(ActionEvent e) {
-					System.out.println(getTxComissaoVendedor());
+					dispose();
 				}
 			});
 		 botoes.add(confirmar);
@@ -138,31 +152,39 @@ public abstract class ViewCadBrinquedo extends JInternalFrame{
 		 add(painel, BorderLayout.NORTH);
 	 }
 	 
-	 public String getTxNome() {
+	 public DefaultComboBoxModel<Object> filialComboBox(){
+			return new DefaultComboBoxModel<>(filialArray());
+		}
+	 
+	 public Object[] filialArray() {
+			return controleFil.toArrayFilialLocal();
+		}
+	 
+	 public String getTxNomeString() {
 		 return txNome.getText();
 	 }
 	 
-	 public Double getTxValor() {
+	 public Double getTxValorDouble() {
 		 return Double.parseDouble(txValor.getText());
 	 }
 	 
-	 public String getTxDescricao() {
+	 public String getTxDescricaoString() {
 		 return txDescricao.getText();
 	 }
 	 
-	 public int getTxFaixaEtaria () {
+	 public int getTxFaixaEtariaInt () {
 		 return Integer.parseInt(txFaixaEtaria.getText());
 	 }
 	 
-	 public Double getTxComissaoVendedor() {
+	 public Double getTxComissaoVendedorDouble() {
 		 return Double.parseDouble(txComissaoVendedor.getText());
 	 }
 	 
-	 public Double getTxLucro() {
+	 public Double getTxLucroDouble() {
 		 return Double.parseDouble(txLucro.getText());
 	 }
 	 
-	 public int getTxCodigo() {
+	 public int getTxCodigoInt() {
 		 return Integer.parseInt(txCodigo.getText());
 	 }
 	 
@@ -173,5 +195,73 @@ public abstract class ViewCadBrinquedo extends JInternalFrame{
 	 public  GridBagConstraints getGbc() {
 			return gbc;
 		}
+	 public JButton getConfirmar() {
+		 return confirmar;
+	 }
+
+	public JTextField getTxNome() {
+		return txNome;
+	}
+
+	public void setTxNome(JTextField txNome) {
+		this.txNome = txNome;
+	}
+
+	public JTextField getTxValor() {
+		return txValor;
+	}
+
+	public void setTxValor(JTextField txValor) {
+		this.txValor = txValor;
+	}
+
+	public JTextField getTxDescricao() {
+		return txDescricao;
+	}
+
+	public void setTxDescricao(JTextField txDescricao) {
+		this.txDescricao = txDescricao;
+	}
+
+	public JTextField getTxFaixaEtaria() {
+		return txFaixaEtaria;
+	}
+
+	public void setTxFaixaEtaria(JTextField txFaixaEtaria) {
+		this.txFaixaEtaria = txFaixaEtaria;
+	}
+
+	public JTextField getTxComissaoVendedor() {
+		return txComissaoVendedor;
+	}
+
+	public void setTxComissaoVendedor(JTextField txComissaoVendedor) {
+		this.txComissaoVendedor = txComissaoVendedor;
+	}
+
+	public JTextField getTxLucro() {
+		return txLucro;
+	}
+
+	public void setTxLucro(JTextField txLucro) {
+		this.txLucro = txLucro;
+	}
+
+	public JTextField getTxCodigo() {
+		return txCodigo;
+	}
+
+	public void setTxCodigo(JTextField txCodigo) {
+		this.txCodigo = txCodigo;
+	}
+
+	public JComboBox<Object> getFilialField() {
+		return filialField;
+	}
+
+	public void setFilialField(JComboBox<Object> filialField) {
+		this.filialField = filialField;
+	}
+	 
 	 
 }

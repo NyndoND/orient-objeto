@@ -10,8 +10,8 @@ public abstract class Brinquedo {
 	protected int codigo;
 	
 	//construtor
-	public Brinquedo(String nome, double valor, String descricao, int faixaEtaria, double comissaoVendedor,
-			double lucro, int codigo) {
+	public Brinquedo(String nome, Double valor, String descricao, int faixaEtaria, Double comissaoVendedor,
+			Double lucro, int codigo) {
 		super();
 		this.nome = nome;
 		this.valor = valor;
@@ -29,10 +29,10 @@ public abstract class Brinquedo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public double getValor() {
+	public Double getValor() {
 		return valor;
 	}
-	public void setValor(double valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 	public String getDescricao() {
@@ -47,16 +47,16 @@ public abstract class Brinquedo {
 	public void setFaixaEtaria(int faixaEtaria) {
 		this.faixaEtaria = faixaEtaria;
 	}
-	public double getComissaoVendedor() {
+	public Double getComissaoVendedor() {
 		return comissaoVendedor;
 	}
-	public void setComissaoVendedor(double comissaoVendedor) {
+	public void setComissaoVendedor(Double comissaoVendedor) {
 		this.comissaoVendedor = comissaoVendedor;
 	}
-	public double getLucro() {
+	public Double getLucro() {
 		return lucro;
 	}
-	public void setLucro(double lucro) {
+	public void setLucro(Double lucro) {
 		this.lucro = lucro;
 	}
 	public int getCodigo() {

@@ -27,10 +27,10 @@ public class DadoAleatorio {
 		Eletronico e2 = new Eletronico ("lagartixa", 18.80, "descrição foda", 11, 0.05, 0.1, 225435430, "bateria", 1);
 		JogoDeCarta jc1 = new JogoDeCarta("UNO", 20.56, "descricao", 14, 20.56, 0.02, 304200020, 42, 5);
 		JogoDeCarta jc2 = new JogoDeCarta("Truco", 85.56, "descricao", 18, 0.01, 0.02, 304256020, 42, 4);
-		Pelucia p1 = new Pelucia("ursinho", 25.66, "descricao",15 ,0.5, 0.01, 22356262, 20);
-		Pelucia p2 = new Pelucia("bonequinho", 25.66, "descricao",15 ,0.5, 0.01, 22356262, 20);
-		JogoDeTabuleiro jt1 = new JogoDeTabuleiro("Jogo da Vida", 42.50, "descricao", 11, 0.02, 0.03, 22053230, 5, 2);
-		JogoDeTabuleiro jt2 = new JogoDeTabuleiro("Duna", 80.66, "descricao", 18, 0.01, 0.04, 24543230, 8, 4);
+		Pelucia p1 = new Pelucia("ursinho", 25.66, "descricao",15 ,0.5, 0.01, 22356262, 20.0);
+		Pelucia p2 = new Pelucia("bonequinho", 25.66, "descricao",15 ,0.5, 0.01, 22356262, 20.0);
+		JogoDeTabuleiro jt1 = new JogoDeTabuleiro("Jogo da Vida", 42.50, "descricao", 11, 0.02, 0.03, 22053230, 5, 2.0);
+		JogoDeTabuleiro jt2 = new JogoDeTabuleiro("Duna", 80.66, "descricao", 18, 0.01, 0.04, 24543230, 8, 4.0);
 		
 		//Dados de Venda 
 		//OBS: É IMPORTANTE CRIAR ESSAS VENDAS DEPOIS, POIS NA CRIAÇÃO DELAS OS BRINQUEDOS VENDIDOS SÃO REMOVIDOS DO ESTOQUE E OUTRAS COISAS

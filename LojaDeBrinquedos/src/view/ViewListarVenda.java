@@ -11,8 +11,11 @@ import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JToolBar;
 import javax.swing.table.DefaultTableModel;
 
+import controle.ControleVenda;
 import main.Brinquedo;
 import main.Filial;
 import main.Venda;
@@ -20,14 +23,40 @@ import main.Venda;
 public class ViewListarVenda extends JInternalFrame{
 
 	private JTable tabela;
+	private DefaultTableModel model;
 	private JButton cadastrar;
 	private JButton excluir;
 	private JButton alterar;
 	private JPanel botoes;
+	
+	private JButton botaoFil = null;
+	private JToolBar barra = null;
+	private JTextField pesquisa = null;
+	
+	private ControleVenda controle = new ControleVenda(); 
+	
 	public ViewListarVenda() {
 		super("Listar Brinquedos", true, true, true, true);
 		setSize(800,200);
 		setLocation(30, 30);
+		
+		//Adicionando a barra de pesquisa em cima 
+		barra = new JToolBar();
+		pesquisa = new JTextField(50);
+		botaoFil = new JButton(new IconeJButton().getIconeFiltrar());
+		botaoFil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				model = null;
+				model = new DefaultTableModel();
+				Object[] columns = {"Vendedor", "Cliente", "Brinquedo", "Quantidade", "Local"};
+				model.setColumnIdentifiers(columns);
+				filtrarTabela(pesquisa.getText(), model);
+				tabela.setModel(model);
+			}
+		 });
+		barra.add(pesquisa);
+		barra.add(botaoFil);
+		add(barra, BorderLayout.NORTH);
 		
 		//Adicionando os botes na parte de baixo da tela
 				botoes = new JPanel();
@@ -66,7 +95,7 @@ public class ViewListarVenda extends JInternalFrame{
 		                return false;               
 					};
 				};
-				DefaultTableModel model = new DefaultTableModel();
+				model = new DefaultTableModel();
 				tabela.setModel(model);
 				tabela.setBackground(Color.LIGHT_GRAY);
 				tabela.setForeground(Color.black);
@@ -75,22 +104,18 @@ public class ViewListarVenda extends JInternalFrame{
 				Object[] columns = {"Vendedor", "Cliente", "Brinquedo", "Quantidade", "Local"}; //Definindo colunas
 				model.setColumnIdentifiers(columns);
 				
-				for (Filial c : Filial.getListaFilial() ) {
-					for (Venda v : c.getListaVenda()) {
-						String vendedor = v.getVendedor().getNome();
-						String cliente = v.getCliente().getNome();
-						String brinquedo = v.getBrinquedo().getNome();
-						int quantidade = v.getQtdVenda();
-						String local = v.getLocal().getLocal();
-						
-						Object[] rowData = {vendedor, cliente, brinquedo, quantidade, local};
-						
-						model.addRow(rowData);
-					}
-				}
 				
+				listarDados(model);
 				JScrollPane scroll = new JScrollPane(tabela);
 				add(scroll);
 				
+	}
+	
+	public void listarDados(DefaultTableModel model) {
+		controle.modelListarVenda(model);
+	}
+	
+	public void filtrarTabela(String digitado, DefaultTableModel model) {
+		controle.filtrarVenda(model, digitado);
 	}
 }

@@ -7,7 +7,7 @@ public class Pelucia extends Brinquedo{
 		return "Nome: "+nome+ "\n Valor: " +valor+ "\n Descricao: "+descricao+ "\n Codigo: " +codigo+ "\n Peso: " + peso;
 	}
 	//constructor
-	public Pelucia(String nome, double valor, String descricao, int faixaEtaria, double comissaoVendedor, double lucro, int codigo, double peso) {
+	public Pelucia(String nome, Double valor, String descricao, int faixaEtaria, Double comissaoVendedor, Double lucro, int codigo, Double peso) {
 		super(nome, valor, descricao, faixaEtaria, comissaoVendedor, lucro, codigo);
 		this.peso = peso;
 	}
@@ -16,7 +16,7 @@ public class Pelucia extends Brinquedo{
 	public double getPeso() {
 		return peso;
 	}
-	public void setPeso(double peso) {
+	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
 
