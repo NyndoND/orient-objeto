@@ -9,13 +9,20 @@ import javax.swing.table.DefaultTableModel;
 import main.Cliente;
 import main.Filial;
 import main.Vendedor;
-
+	/**
+	 * Classe responsavel pode todos os metodos intermediadores relacionado a vendedor, estabelece uma relacoa indireta entre a view de main
+	 */
 public class ControleVendedor {
-
+	
 	public ControleVendedor () {
 		
 	}
 	
+	/**
+//	 * Busca e retorna o index da filial de determinado vendedor de acordo com o objeto que foi selecionado na lista  
+	 * @param index
+	 * @return
+	 */
 	public int getVendedorListaFilialIndex (int index) {
 		/*
 		 * A logica se baseia na busca pelo Index, contudo temos que fazer essa busca em uma lista
@@ -50,6 +57,11 @@ public class ControleVendedor {
 		return  indexFilial;
 	}
 	
+	/**
+	 * Busca e retorna o index do vendedor de determinado vendedor de acordo com o objeto que foi selecionado na lista  
+	 * @param index
+	 * @return
+	 */
 	public int getVendedorListaVendedorIndex (int index) {
 		int indexFilial = 0;
 		int sizeAntigo = 0;
@@ -72,6 +84,12 @@ public class ControleVendedor {
 		return  indexVen;
 	}
 	
+	/**
+	 * Recebe um model que é adicionado as linhas de acordo com o ArrayList de Vendedor, porem antes de adiciona o ArrayList é filtrado primeiro por
+	 * cpf dos vendedores se não houver nenhuma incidencia o ArrayList será filtrado por nome.
+	 * @param model
+	 * @param digitado
+	 */
 	public void filtrarVendedor(DefaultTableModel model, String digitado) {
 		for(Filial f : Filial.getListaFilial()) {
 			for (Vendedor v : f.getListaVendedor()) {
@@ -94,43 +112,80 @@ public class ControleVendedor {
 		}
 	}
 	
-	
+	/**
+	 * Busca um vendedor por index da lista de filial e da lista de vendedores e retorna o nome do vendedor buscado
+	 * @param indexFil
+	 * @param indexVen
+	 * @return
+	 */
 	public String getVendedorNome (int indexFil, int indexVen) {
 		
 		Filial filial = Filial.getListaFilial().get(indexFil);
 		return filial.getListaVendedor().get(indexVen).getNome();
 	}
-	
+	/**
+	 *  Busca um vendedor por index da lista de filial e da lista de vendedores e retorna o telefone do vendedor buscado
+	 * @param indexFil
+	 * @param indexVen
+	 * @return
+	 */
 	public String getVendedorTelefone (int indexFil, int indexVen) {
 		
 		Filial filial = Filial.getListaFilial().get(indexFil);
 		return Integer.toString(filial.getListaVendedor().get(indexVen).getTelefone());
 	}
-	
+	/**
+	 *  Busca um vendedor por index da lista de filial e da lista de vendedores e retorna o endereco do vendedor buscado
+	 * @param indexFil
+	 * @param indexVen
+	 * @return
+	 */
 	public String getVendedorEndereco(int indexFil, int indexVen) {
 		
 		Filial filial = Filial.getListaFilial().get(indexFil);
 		return filial.getListaVendedor().get(indexVen).getEndereco();
 	}
 	
+	/**
+	 *  Busca um vendedor por index da lista de filial e da lista de vendedores e retorna o cpf do vendedor buscado
+	 * @param indexFil
+	 * @param indexVen
+	 * @return
+	 */
 	public String getVendedorCpf(int indexFil, int indexVen) {
 		
 		Filial filial = Filial.getListaFilial().get(indexFil);
 		return Integer.toString(filial.getListaVendedor().get(indexVen).getCpf());
 	}
 	
+	/**
+	 *  Busca um vendedor por index da lista de filial e da lista de vendedores e retorna a data de contratacao do vendedor buscado
+	 * @param indexFil
+	 * @param indexVen
+	 * @return
+	 */
 	public String getVendedorDataContrato(int indexFil, int indexVen) {
 		
 		Filial filial = Filial.getListaFilial().get(indexFil);
 		return filial.getListaVendedor().get(indexVen).getDataContratacao().toString();
 	}
 	
+	/**
+	 *  Busca um vendedor por index da lista de filial e da lista de vendedores e retorna o salario do vendedor buscado
+	 * @param indexFil
+	 * @param indexVen
+	 * @return
+	 */
 	public String getVendedorSalario(int indexFil, int indexVen) {
 		
 		Filial filial = Filial.getListaFilial().get(indexFil);
 		return Double.toString(filial.getListaVendedor().get(indexVen).getSalario());
 	}
 	
+	/**
+	 *  Adiciona a um model linha de acordo com o ArrayList de vendedores de todas as filiais existentes 
+	 * @param model
+	 */
 	public void modelListarVendedor(DefaultTableModel model) {
 		//é importante perceber que ele adiciona os vendedores na ordem que as filiais estão no ArrayList
 		for (Filial c : Filial.getListaFilial() ) {
@@ -145,6 +200,16 @@ public class ControleVendedor {
 			}
 		}
 	}
+	/**
+	 * Cria um novo objeto vendedor e adiciona no ArrayList de vendedores de determinada Filial 
+	 * @param nome
+	 * @param telefone
+	 * @param endereco
+	 * @param cpf
+	 * @param data
+	 * @param salario
+	 * @param index
+	 */
 	public void cadastrarVendedor(String nome, int telefone, String endereco, int cpf, Date data, double salario, int index) {
 		Vendedor vendedor = new Vendedor(nome, telefone, endereco, cpf, data, salario);
 		Filial.getListaFilial().get(index).addVendedor(vendedor);
@@ -152,6 +217,18 @@ public class ControleVendedor {
 
 	}
 	
+	/**
+	 * Busca um objeto vendedor de acordo com o index de filial e o index do vendedor e altera ele de acordo com os parametros fornecidos
+	 * @param indexFil
+	 * @param indexVen
+	 * @param nome
+	 * @param telefone
+	 * @param endereco
+	 * @param cpf
+	 * @param data
+	 * @param salario
+	 * @param newIndexFil
+	 */
 	public void alterarVendedorIndex(int indexFil, int indexVen, String nome, int telefone, String endereco, int cpf, Date data, double salario, int newIndexFil) {
 		Filial filial = Filial.getListaFilial().get(indexFil); 
 		Vendedor vendedor = filial.getListaVendedor().get(indexVen);
@@ -170,6 +247,10 @@ public class ControleVendedor {
 
 	}
 	
+	/**
+	 * remove um objeto vendedor do ArrayList de acordo com o index dele na lista da Interface grafica
+	 * @param index
+	 */
 	public void removerVendedorIndex(int index) {
 		int indexFil = getVendedorListaFilialIndex(index);
 		int indexVen = getVendedorListaVendedorIndex(index);
@@ -178,7 +259,4 @@ public class ControleVendedor {
 
 	}
 	
-	public void removerVendedor(Vendedor v) {
-		
-	}
 }

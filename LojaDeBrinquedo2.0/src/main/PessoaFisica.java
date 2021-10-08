@@ -1,5 +1,9 @@
 package main;
-
+/**
+ * Classe modelo de pessoa fisica com metodos  get e set 
+ * @author renan
+ *
+ */
 public abstract class PessoaFisica {
 	protected String nome;
 	protected int telefone;

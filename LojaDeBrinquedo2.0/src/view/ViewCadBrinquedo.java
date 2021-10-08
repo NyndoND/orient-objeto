@@ -17,7 +17,11 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 import controle.ControleFilial;
-
+/**
+ * Classe que cria a base da tela para cadastro de brinquedos 
+ * @author renan
+ *
+ */
 public abstract class ViewCadBrinquedo extends JInternalFrame implements ActionListener{
 	
 	static final int xPosition = 30, yPosition = 30;
@@ -41,6 +45,9 @@ public abstract class ViewCadBrinquedo extends JInternalFrame implements ActionL
 	 
 	 private ControleFilial controleFil = new ControleFilial();
 	 
+	 /**
+	  * Metodo construtor que usa todos os atributos da classe 
+	  */
 	 public ViewCadBrinquedo (){
 		 super("Cadastrar", true, true, true, true);
 		 setSize(800,300);
@@ -152,38 +159,66 @@ public abstract class ViewCadBrinquedo extends JInternalFrame implements ActionL
 		 add(painel, BorderLayout.NORTH);
 	 }
 	 
+	 /**
+	  * Cria um comboBoxModel usando um Array que é fornecido por filialArray()
+	  * @return
+	  */
 	 public DefaultComboBoxModel<Object> filialComboBox(){
 			return new DefaultComboBoxModel<>(filialArray());
 		}
-	 
+	 /**
+	  * executa o metodo "toArrayFilialLocal()" da ControleFilial 
+	  * @return
+	  */
 	 public Object[] filialArray() {
 			return controleFil.toArrayFilialLocal();
 		}
-	 
+	 /**
+	  * Retorna o que foi digitado pelo usuario 
+	  * @return
+	  */
 	 public String getTxNomeString() {
 		 return txNome.getText();
 	 }
-	 
+	 /**
+	  * Retorna o que foi digitado pelo usuario 
+	  * @return
+	  */
 	 public Double getTxValorDouble() {
 		 return Double.parseDouble(txValor.getText());
 	 }
-	 
+	 /**
+	  * Retorna o que foi digitado pelo usuario 
+	  * @return
+	  */
 	 public String getTxDescricaoString() {
 		 return txDescricao.getText();
 	 }
-	 
+	 /**
+	  * Retorna o que foi digitado pelo usuario 
+	  * @return
+	  */
 	 public int getTxFaixaEtariaInt () {
 		 return Integer.parseInt(txFaixaEtaria.getText());
 	 }
-	 
+	 /**
+	  * Retorna o que foi digitado pelo usuario 
+	  * @return
+	  */
 	 public Double getTxComissaoVendedorDouble() {
 		 return Double.parseDouble(txComissaoVendedor.getText());
 	 }
-	 
+	 /**
+	  * Retorna o que foi digitado pelo usuario 
+	  * @return
+	  */
 	 public Double getTxLucroDouble() {
 		 return Double.parseDouble(txLucro.getText());
 	 }
-	 
+	 /**
+	  * Retorna o que foi digitado pelo usuario 
+	  * @return
+	  */
 	 public int getTxCodigoInt() {
 		 return Integer.parseInt(txCodigo.getText());
 	 }

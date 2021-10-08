@@ -19,7 +19,11 @@ import controle.ControleVenda;
 import main.Brinquedo;
 import main.Filial;
 import main.Venda;
-
+/**
+ * Classe da tela de listar venda 
+ * @author renan
+ *
+ */
 public class ViewListarVenda extends JInternalFrame{
 
 	private JTable tabela;
@@ -31,6 +35,9 @@ public class ViewListarVenda extends JInternalFrame{
 	
 	private ControleVenda controle = new ControleVenda(); 
 	
+	/**
+	 * Metodo construtor da classe, cria a tela que lista todas as vendas
+	 */
 	public ViewListarVenda() {
 		super("Listar Brinquedos", true, true, true, true);
 		setSize(800,500);
@@ -77,10 +84,19 @@ public class ViewListarVenda extends JInternalFrame{
 				
 	}
 	
+	/**
+	 * Adiciona no model as linhas com os dados de cada venda
+	 * @param model
+	 */
 	public void listarDados(DefaultTableModel model) {
 		controle.modelListarVenda(model);
 	}
 	
+	/**
+	 * Filtra a tabela, gerando um novo model apenas com as linhas das venda que a filtragem coincide 
+	 * @param digitado
+	 * @param model
+	 */
 	public void filtrarTabela(String digitado, DefaultTableModel model) {
 		controle.filtrarVenda(model, digitado);
 	}

@@ -11,17 +11,29 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import main.DadoAleatorio;
-
+/**
+ * Classe principal da interface gráfica e do desktopMenu que contem todos as outras view 
+ * @author renan
+ *
+ */
 public class DesktopMenu extends JFrame{
 	
 	private static JDesktopPane desktop = new JDesktopPane();
 	private JMenuBar menubar = new JMenuBar();
 	
+	/**
+	 * Metodo principal do código que é executado primeiro para gerar a interface grafica e interacao com o usuario
+	 * metodo simples que apenas criar objeto desktopMenu, veja o construtor para entender melhor especificamente o que esta sendo criado e como esta sendo criado 
+	 * @param args
+	 */
 	public static void main(String [] args) {
 		DesktopMenu teste = new DesktopMenu();
 		
 	}
 	
+	/**
+	 * Construtor do desktopMenu que cria o inicio da interface grafica nele engloba as outras telas views e seu botões 
+	 */
 	public DesktopMenu() {
 		DadoAleatorio.addDados();
 		 int inset = 50;
@@ -244,10 +256,15 @@ public class DesktopMenu extends JFrame{
 		
 		
 	}
-
+	
+	/**
+	 * Metodo estatico para poder adicionar tela no desktopMenu mesmo depois da sua criação 
+	 * @param frame
+	 */
 	public static void addDesktop(JInternalFrame frame) {
 		desktop.add(frame);
 	}
+	
 	
 	public JDesktopPane getDesktop() {
 		return desktop;

@@ -8,7 +8,11 @@ import javax.swing.JTextField;
 
 import controle.ControleBrinquedo;
 import main.Eletronico;
-
+/**
+ * Classe da tela de cadastro de Eletronico 
+ * @author renan
+ *
+ */
 public class ViewCadEletronico extends ViewCadBrinquedo{
 	
 	private JLabel fonteDeEnergia;
@@ -21,6 +25,9 @@ public class ViewCadEletronico extends ViewCadBrinquedo{
 	
 	private ControleBrinquedo controle = new ControleBrinquedo();
 	
+	/**
+	 * Metodo construtor da tela de eletronico, adiciona os campos especificos do objeto
+	 */
 	public ViewCadEletronico () {
 		super();
 		gbc = getGbc();
@@ -47,6 +54,9 @@ public class ViewCadEletronico extends ViewCadBrinquedo{
 		
 	}
 	
+	/**
+	 * Metodo sobrescrito para definir seu efeito nessa tela
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (getConfirmar() == e.getSource()) {
@@ -56,13 +66,22 @@ public class ViewCadEletronico extends ViewCadBrinquedo{
 			}
 	}
 	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	public String getTxFonteDeEnergiaString() {
 		return txFonteDeEnergia.getText();
 	}
 	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	public int getTxGarantiaInt() {
 		return Integer.parseInt(txGarantia.getText());
 	}
+	
 	public JLabel getFonteDeEnergia() {
 		return fonteDeEnergia;
 	}

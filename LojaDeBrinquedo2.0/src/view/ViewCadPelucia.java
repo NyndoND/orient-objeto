@@ -8,7 +8,11 @@ import javax.swing.JTextField;
 
 import controle.ControleBrinquedo;
 import controle.ControleFilial;
-
+/**
+ * Classe da tela de cadastro de pelucia 
+ * @author renan
+ *
+ */
 public class ViewCadPelucia extends ViewCadBrinquedo{
 
 	private JLabel peso;
@@ -18,6 +22,9 @@ public class ViewCadPelucia extends ViewCadBrinquedo{
 	
 	private ControleBrinquedo controle = new ControleBrinquedo();
 	
+	/**
+	 * Metodo construtor, adiciona os campos especifico da classe 
+	 */
 	public ViewCadPelucia() {
 		super();
 		gbc = getGbc();
@@ -36,6 +43,9 @@ public class ViewCadPelucia extends ViewCadBrinquedo{
 		getPanel().add(txPeso, gbc);
 	}
 	
+	/**
+	 * Metodo sobrescrito para definir seu efeito nessa tela
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (getConfirmar() == e.getSource()) {
@@ -45,6 +55,10 @@ public class ViewCadPelucia extends ViewCadBrinquedo{
 			}
 	}
 	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	 public Double getTxPesoDouble() {
 		 return Double.parseDouble(txPeso.getText());
 	 }

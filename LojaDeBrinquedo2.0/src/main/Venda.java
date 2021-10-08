@@ -1,7 +1,11 @@
 package main;
 
 import java.util.Date;
-
+/**
+ * classe modelo de venda com metodos get e set 
+ * @author renan
+ *
+ */
 public class Venda {
 	private String formaPagamento;
 	private int qtdVenda;
@@ -14,34 +18,56 @@ public class Venda {
 	private double valorTotal;
 	
 	
-	
+	/**
+	 * remove determinado brinquedo da lista de brinquedos quando a venda é realizada 
+	 */
 	public void atualizarEstoqueBrinquedo() {
 		getLocal().getEstoqueBrinquedo().remove(brinquedo);
 	}
 	
+	/**
+	 * calcula o valor total da venda e set esse valor no atributo quando a venda é criada 
+	 */
 	public void calcularValorTotal() {
 		setValorTotal(qtdVenda * brinquedo.getValor());
 	}
-	
+	/**
+	 * calcula a comissao final do vendedor e registra esse valor na venda quando ela é criada 
+	 */
 	public void calcularComissao() {
 		setComissaoVenda(brinquedo.getValor() * brinquedo.getComissaoVendedor() * qtdVenda);
 	}
 	
+	/**
+	 * altera a comissão total do vendedor toda vez que uma venda é criada no seu nome 
+	 */
 	public void acrescentarComissão () {
 		getVendedor().setComissaoTotal(getVendedor().getComissaoTotal() + getComissaoVenda());
 	}
 	
+	/**
+	 * acrescenta o valor da venda no valor total de venda do mes da filial que a venda foi cadastrada
+	 */
 	public void acrescentarVendaMes () {
 		getLocal().setTotalVendasMes(getLocal().getTotalVendasMes() + getValorTotal());
 	}
 	
-	
+	/**
+	 * metodo toString sobrescrito para imprimir qualquer objeto venda no console 
+	 */
 	public String toString() {
 		return " Cliente: " + cliente.getNome() + "\n Vendedor:" + vendedor.getNome() + "\n Data da Compra: " + dataCompra + "\n Brinquedo: " + brinquedo.getNome() +"\n Quantidade: "+ qtdVenda +"\n Filial: " + local.getLocal() + "\n Valor Total: " + valorTotal + "\n Forma de pagamento: " + formaPagamento + "\n" + local ;
 	}
 
 
-
+	/**
+	 * metodos construtor de venda com todos os atributos da classe modelo 
+	 * @param v
+	 * @param c
+	 * @param b
+	 * @param qtdVenda
+	 * @param f
+	 */
 	//construtor 
 	public Venda(Vendedor v, Cliente c, Brinquedo b, int qtdVenda, Filial f) {
 		this.vendedor = v;

@@ -3,12 +3,20 @@ package view;
 import java.awt.event.ActionEvent;
 
 import controle.ControleVendedor;
-
+/**
+ * Classe da tela de alterar vendedor 
+ * @author renan
+ *
+ */
 public class ViewAlterarVendedor extends ViewCadVendedor{
 	private ControleVendedor controle = new ControleVendedor();
 	int indexVen = 0;
 	int indexFilial = 0;
 	
+	/**
+	 * Construtor da tela que já vem com os campos preenchidos 
+	 * @param index
+	 */
 	public ViewAlterarVendedor(int index) {
 		setTitle("Alterar");
 		
@@ -24,6 +32,10 @@ public class ViewAlterarVendedor extends ViewCadVendedor{
 		getFilialField().setSelectedIndex(indexFilial);
 		
 	}
+	
+	/**
+	 * Metodo sobrescrito defininco o que o botao deve fazer qunado ele for acionado nessa tela 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (getConfirmar() == e.getSource()) {

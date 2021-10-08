@@ -21,7 +21,11 @@ import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
 
-
+/**
+ * Classe de cadastro de pessoa essa tela é a base para cadastro de cliente e de vendedor 
+ * @author renan
+ *
+ */
 public abstract class ViewCadPessoa extends JInternalFrame implements ActionListener{
 	
 	static final int xPosition = 30, yPosition = 30;
@@ -37,6 +41,9 @@ public abstract class ViewCadPessoa extends JInternalFrame implements ActionList
 	 private  GridBagConstraints gbc;
 	 private JButton confirmar;
 	 
+	 /**
+	  * Metodo construtor que coloca os campos que são comuns entra vendedor e cliente 
+	  */
 	 public ViewCadPessoa () {
 		 super("Cadastrar", true, true, true, true);
 		 setSize(800,200);
@@ -104,16 +111,29 @@ public abstract class ViewCadPessoa extends JInternalFrame implements ActionList
 		 add(painel, BorderLayout.NORTH);
 	 }
 	 
+	 /**
+	  * Retorna o que foi digitado pelo usuario no campo
+	  * @return
+	  */
 	 public String getTxNomeString() {
 		 return txNome.getText();
 	 }
 	 
+	 /**
+	  * Retorna o que foi digitado pelo usuario no campo
+	  * @return
+	  */
 	 public int getTxTelefoneInt() {
 		 return Integer.parseInt(txTelefone.getText());
 	 }
+	 /**
+	  * Retorna o que foi digitado pelo usuario no campo
+	  * @return
+	  */
 	 public String getTxEnderecoString() {
 		 return txEndereco.getText();
 	 }
+	 
 	public JPanel getPanel() {
 		return painel;
 	}

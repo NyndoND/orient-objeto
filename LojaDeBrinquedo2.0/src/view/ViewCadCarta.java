@@ -7,7 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import controle.ControleBrinquedo;
-
+/**
+ * Classe da tela cadastro de jogo de carta 
+ * @author renan
+ *
+ */
 public class ViewCadCarta extends ViewCadBrinquedo{
 	
 	private JLabel qtdCartas;
@@ -19,7 +23,9 @@ public class ViewCadCarta extends ViewCadBrinquedo{
 	private GridBagConstraints gbc;
 	
 	private ControleBrinquedo controle = new ControleBrinquedo();
-	
+	/**
+	 * Metodo contrutor da tela de cadastro 
+	 */
 	public ViewCadCarta() {
 		super();
 		gbc = getGbc();
@@ -44,7 +50,9 @@ public class ViewCadCarta extends ViewCadBrinquedo{
 		gbc.gridy++;
 		getPanel().add(txQtdJogadores, gbc);
 	}
-	
+	/**
+	 * Metodo sobrescrito para definir seu efeito nessa tela 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (getConfirmar() == e.getSource()) {
@@ -54,10 +62,18 @@ public class ViewCadCarta extends ViewCadBrinquedo{
 			}
 	}
 	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	public int getTxQtdCartasInt() {
 		return Integer.parseInt(txQtdCartas.getText());
 	}
 	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	public int getTxQtdJogadoresInt() {
 		return Integer.parseInt(txQtdJogadores.getText());
 	}

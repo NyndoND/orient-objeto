@@ -15,7 +15,11 @@ import javax.swing.JTextField;
 import controle.ControleFilial;
 import controle.ControleVendedor;
 import main.Filial;
-
+/**
+ * Classe da tela de cadastro de vendedor
+ * @author renan
+ *
+ */
 public class ViewCadVendedor extends ViewCadPessoa{
 
 	private JLabel cpf;
@@ -35,6 +39,9 @@ public class ViewCadVendedor extends ViewCadPessoa{
 	private ControleVendedor controle = new ControleVendedor();
 	private ControleFilial controleFil = new ControleFilial();
 	
+	/**
+	 * Metodo construtor da tela de cadastro de vendedor com os campos especificos de vendedor 
+	 */
 	public ViewCadVendedor() {
 		super();
 		gbc = getGbc();
@@ -75,10 +82,18 @@ public class ViewCadVendedor extends ViewCadPessoa{
 		
 	}
 	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	public int getTxCpfInt() {
 		return Integer.parseInt(txCpf.getText());
 	}
 	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	public Date getTxDataDate() {
 		String data = txDataContratacao.getText();
 		Date dataFormat = null;
@@ -90,11 +105,18 @@ public class ViewCadVendedor extends ViewCadPessoa{
 		return dataFormat;
 	}
 	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	public Double getTxSalarioDouble() {
 		Double salario = Double.parseDouble(txSalario.getText());
 		return salario;
 	}
 	
+	/**
+	 * Metodo sobrescrito para definir seu efeito nessa tela
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (getConfirmar() == e.getSource()) {
@@ -108,6 +130,10 @@ public class ViewCadVendedor extends ViewCadPessoa{
 		return new DefaultComboBoxModel<>(filialArray());
 	}
 	
+	/**
+	 * Transforma um ArrayList em Array apenas com o local de cada Filial
+	 * @return
+	 */
 	public Object[] filialArray() {
 		return controleFil.toArrayFilialLocal();
 	}

@@ -3,8 +3,15 @@ package main;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+/**
+ * Classe para geração de dados aleatorios e deixar o programa precarregado com dados e objetos quando ele for inicializado
+ * @author renan
+ *
+ */
 public class DadoAleatorio {
-	
+	/**
+	 * Metodo que cria diversos dados aleatórios, como clientes, vendedores, vendas e etc... 
+	 */
 	public static void addDados() {
 		
 		Cliente c1 = new Cliente ("Renann", 9969696, "Cidade_Ocidental");

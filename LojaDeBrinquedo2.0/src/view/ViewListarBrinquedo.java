@@ -25,6 +25,11 @@ import main.Pelucia;
 import main.Vendedor;
 import main.Brinquedo;
 
+/**
+ * Classe da tela listar brinquedos 
+ * @author renan
+ *
+ */
 public class ViewListarBrinquedo extends JInternalFrame{
 
 	private JButton botaoFil = null;
@@ -39,7 +44,10 @@ public class ViewListarBrinquedo extends JInternalFrame{
 	private JPanel botoes;
 	
 	private ControleBrinquedo controle = new ControleBrinquedo();
-	
+	/**
+	 * Metodo construtor da tela de listar brinquedos, listar os brinquedos em forma de uma tabela, lista todos os brinquedos, 
+	 * os brinquedos são listados na ordem que suas filiais se encontram no Arryalist
+	 */
 	public ViewListarBrinquedo() {
 		super("Listar Brinquedos", true, true, true, true);
 		setSize(800,200);
@@ -135,10 +143,19 @@ public class ViewListarBrinquedo extends JInternalFrame{
 				add(scroll);
 				
 	}
+	
+	/**
+	 * Adiciona ao model linhas com os dados de cada brinquedo
+	 * @param model
+	 */
 	public void listarDados(DefaultTableModel model) {
 		controle.modelListarBrinquedos(model);
 	}
-	
+	/**
+	 * Adiciona ao model linhas com os dados de apenas os brinquedos que passaram no filtro, seja ele por nome ou pode codigo 
+	 * @param digitado
+	 * @param model
+	 */
 	public void filtrarTabela(String digitado, DefaultTableModel model) {
 		controle.filtrarBrinquedo(model, digitado);
 	}

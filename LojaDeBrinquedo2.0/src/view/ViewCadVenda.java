@@ -20,6 +20,11 @@ import main.Cliente;
 import main.Filial;
 import main.Vendedor;
 
+/**
+ * Classe da tela de cadastrar venda 
+ * @author renan
+ *
+ */
 public class ViewCadVenda {
 	
 	JComboBox<Object> filialField = new JComboBox<>();
@@ -32,6 +37,10 @@ public class ViewCadVenda {
 	JButton realizar = new JButton ("Realizar Venda");
 	
 	
+	/**
+	 * Construtor da tela venda que pede como parametro da JDesktopPane, é criado usando todos os atibutos da classe 
+	 * @param d
+	 */
 	public ViewCadVenda(JDesktopPane d) {
 		
 		ControleVenda controle = new ControleVenda();
@@ -119,10 +128,16 @@ public class ViewCadVenda {
 		d.add(imagem2);
 		
 	}
-	
+	/**
+	 * modifica as opcoes de vendedor que aparecem de acordo com a filial selecionada 
+	 */
 	public void vendedorField () {
 		vendedorField.setModel(vendedorComboBox(filialField.getSelectedIndex()));
 	}
+	
+	/**
+	 * modifica as opcoes de brinquedos que aparecem de acordo com a filial selecionada
+	 */
 	public void produtoField() {
 		produtoField.setModel(produtoComboBox(filialField.getSelectedIndex()));
 	}
@@ -130,7 +145,10 @@ public class ViewCadVenda {
 	public DefaultComboBoxModel<Object> clienteComboBox(){
 		return new DefaultComboBoxModel<>(clienteArray());
 	}
-	
+	/**
+	 * Transforma um ArrayList em Array apenas com nomes
+	 * @return
+	 */
 	public Object[] clienteArray() {
 		ArrayList<String> nomes = new ArrayList<String>(); 
 		for (Cliente c : Cliente.getListaCliente()) {
@@ -143,6 +161,11 @@ public class ViewCadVenda {
 		return new DefaultComboBoxModel<>(produtoArray(index));
 	}
 	
+	/**
+	 * Transforma um ArrayList em Array apenas com os nomes de brinquedos
+	 * @param index
+	 * @return
+	 */
 	public Object[] produtoArray(int index) {
 		ArrayList<String> nomes = new ArrayList<String>(); 
 		for (Brinquedo b : Filial.getListaFilial().get(index).getEstoqueBrinquedo()) {
@@ -155,6 +178,11 @@ public class ViewCadVenda {
 		return new DefaultComboBoxModel<>(vendedorArray(index));
 	}
 	
+	/**
+	 * Transforma um ArrayList em Array apenas com nomes de vendedores
+	 * @param index
+	 * @return
+	 */
 	public Object[] vendedorArray(int index) {
 		ArrayList<String> nomes = new ArrayList<String>(); 
 		for (Vendedor v : Filial.getListaFilial().get(index).getListaVendedor()) {
@@ -167,6 +195,10 @@ public class ViewCadVenda {
 		return new DefaultComboBoxModel<>(filialArray());
 	}
 	
+	/**
+	 * Transforma um ArrayList em Array apenas com o local das filiais 
+	 * @return
+	 */
 	public Object[] filialArray() {
 		ArrayList<String> nomes = new ArrayList<String>(); 
 		for (Filial f : Filial.getListaFilial()) {
@@ -175,26 +207,46 @@ public class ViewCadVenda {
 		return nomes.toArray();
 	}
 
+	/**
+	 * Converte pra String a opcao selecionada pelo usuario 
+	 * @return
+	 */
 	public String getFilialField() {
 		String nome = filialField.getSelectedItem().toString();
 		return nome;
 	}
 	
+	/**
+	 * Converte pra String a opcao selecionada pelo usuario 
+	 * @return
+	 */
 	public String getVendedorField() {
 		String nome = vendedorField.getSelectedItem().toString();
 		return nome;
 	}
 	
+	/**
+	 * Converte pra String a opcao selecionada pelo usuario 
+	 * @return
+	 */
 	public String getBrinquedoField() {
 		String nome = produtoField.getSelectedItem().toString();
 		return nome;
 	}
 
+	/**
+	 * Converte pra String a opcao selecionada pelo usuario 
+	 * @return
+	 */
 	public String getClienteField () {
 		String nome = clienteField.getSelectedItem().toString();
 		return nome;
 	}
 	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	public int getQtdField() {
 		int qtd = Integer.parseInt(qtdField.getText());
 		return qtd;

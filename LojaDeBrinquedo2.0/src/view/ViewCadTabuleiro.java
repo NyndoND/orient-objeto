@@ -8,6 +8,11 @@ import javax.swing.JTextField;
 
 import controle.ControleBrinquedo;
 
+/**
+ * Classe da view cadastro de jogo de tabuleiro 
+ * @author renan
+ *
+ */
 public class ViewCadTabuleiro extends ViewCadBrinquedo{
 	
 	private JLabel qtdJogadores;
@@ -20,6 +25,9 @@ public class ViewCadTabuleiro extends ViewCadBrinquedo{
 	
 	private ControleBrinquedo controle = new ControleBrinquedo();
 	
+	/**
+	 * Metodo construtor da tela com os cmapos especificos do objeto 
+	 */
 	public ViewCadTabuleiro () {
 		super();
 		gbc = getGbc();
@@ -44,7 +52,9 @@ public class ViewCadTabuleiro extends ViewCadBrinquedo{
 		gbc.gridy++;
 		getPanel().add(txTempoMedio, gbc);
 	}
-	
+	/**
+	 * Metodo sobrescrito para definir seu efeito nessa tela
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (getConfirmar() == e.getSource()) {
@@ -54,10 +64,17 @@ public class ViewCadTabuleiro extends ViewCadBrinquedo{
 			}
 	}
 	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	public int getTxQtdJogadoresInt () {
 		return Integer.parseInt(txQtdJogadores.getText());
 	}
-	
+	/**
+	 * Retorna o que foi digitado pelo usuario no campo 
+	 * @return
+	 */
 	public Double getTxTempoMedioDouble() {
 		return Double.parseDouble(txTempoMedio.getText());
 	}

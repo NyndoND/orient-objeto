@@ -4,12 +4,21 @@ import java.awt.event.ActionEvent;
 
 import controle.ControleBrinquedo;
 import main.JogoDeCarta;
-
+/**
+ * Classe da Tela de alterar objetos jogo de carta 
+ * @author renan
+ *
+ */
 public class ViewAlterarCarta extends ViewCadCarta{
 	private ControleBrinquedo controle = new ControleBrinquedo();
 	int indexBrin = 0;
 	int indexFilial=0;
 	
+	/**
+	 * Construtor que cria a tela com campos já preenchidos
+	 * @param index
+	 * @param c
+	 */
 	public ViewAlterarCarta(int index, JogoDeCarta c) {
 		setTitle("Alterar");
 		
@@ -27,6 +36,10 @@ public class ViewAlterarCarta extends ViewCadCarta{
 		getTxQtdJogadores().setText(Integer.toString(controle.getCartaQtdJogadores(c)));
 		getFilialField().setSelectedIndex(indexFilial);
 	}
+	
+	/**
+	 * Sobrescreve o que o botão deve fazer quando ele for executado nessa tela
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (getConfirmar() == e.getSource()) {

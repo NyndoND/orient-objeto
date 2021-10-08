@@ -8,13 +8,21 @@ import main.Cliente;
 import main.Filial;
 import main.Venda;
 import main.Vendedor;
-
+	/**
+	 * Classe responsavel por todos os metodos relacionados a objetos venda e estabele uma relaco intermediaria entra a view e main
+	 * @author Renann de Oliveira
+	 * @version 1.0 (Out 2021)
+	 */
 public class ControleVenda {
 	
 	public ControleVenda() {
 		
 	}
-	
+	/**
+	 * Recebe um DefaultTableModel e adiciona linhas de acordo com todos os ArrayList de Venda, esse metodo é usado quando vão gerar
+	 * a lista de Vendas na Interface gráfica  
+	 * @param model
+	 */
 	public void modelListarVenda(DefaultTableModel model) {
 		for (Filial c : Filial.getListaFilial() ) {
 			for (Venda v : c.getListaVenda()) {
@@ -31,6 +39,12 @@ public class ControleVenda {
 		}
 	}
 	
+	/**
+	 * Adiciona linhas na model de acordo com o que foi digitado, primeiro faz-se um filtro por nome do Cliente de cada Venda, se nenhum objeto for 
+	 * coincidir com o que está sendo buscado, faz-se uma nova filtragem comparando o qu foi digitado com o nome do vendedor de cada Venda
+	 * @param model
+	 * @param digitado
+	 */
 	public void filtrarVenda(DefaultTableModel model, String digitado) {
 		for (Filial c : Filial.getListaFilial() ) {
 			for (Venda v : c.getListaVenda()) {
@@ -58,7 +72,15 @@ public class ControleVenda {
 			}
 		}
 	}
-	
+	/**
+	 * Cria e adiciona uma Venda de acordo com o que for fornecido, como é fornecido filial, cliente e vendedor como String, o metodo tambem faz uma 
+	 * busca para poder pegar o objetos em suas classes originais e assim poder criar uma Venda.
+	 * @param f
+	 * @param c
+	 * @param v
+	 * @param qtd
+	 * @param b
+	 */
 	public void cadastrarVenda(String f, String c, String v, int qtd, String b) {
 		int i = 0;
 		int IndFi = 0;

@@ -1,7 +1,11 @@
 package main;
 
 import java.util.ArrayList;
-
+/**
+ * Classe modelo de Filial com alguns metodos para modificar e pegar os atributos especificos 
+ * @author renan
+ *
+ */
 public class Filial {
 	private String local;
 	private Vendedor gerente; //Preciso principalmente apresentar nome dele 
@@ -13,10 +17,17 @@ public class Filial {
 	private ArrayList<Venda> listaVenda = new ArrayList<Venda>();
 	private static ArrayList<Filial> listaFilial = new ArrayList<Filial>();
 	
+	/**
+	 * Metodo toString sobrescrito para facilitar a impressõa de qualquer objeto filial no console
+	 */
 	public String toString() {
 		return " Localizacao: " +local+ "\n Nome do Gerente: " + gerente.nome + "\n Estoque de Brinquedos: " + estoqueBrinquedoQtd + "\n Total Venda Mes: " + totalVendasMes;
 	}
 	
+	/**
+	 * Meotodo para buscar um brinquedo pelo nome e imprimir no console
+	 * @param nome
+	 */
 	//Busca de Brinquedos por nome
 	public void buscaBrinquedosNome(String nome) {
 		int i=0;
@@ -33,7 +44,10 @@ public class Filial {
 		} else { System.out.println(this.getEstoqueBrinquedo().get(IndBrinq).toString());
 		}
 	}
-	
+	/**
+	 * Busca brinquedo pelo codigo e o imprime no console
+	 * @param codigo
+	 */
 	//Busca por código
 	public void buscaBrinquedosCod(int codigo) {
 		int i=0;
@@ -51,6 +65,10 @@ public class Filial {
 		}
 	}
 	
+	/**
+	 * busca vendedor por nome e o imprime no console 
+	 * @param nome
+	 */
 	//Busca Vendedor por Nome
 	public void buscaVendedorNome(String nome) {
 		int i=0;
@@ -68,6 +86,10 @@ public class Filial {
 		}
 	}
 	
+	/**
+	 * busca vendedor por cpf e o imprimi no console
+	 * @param cpf
+	 */
 	// Busca Vendedro por cpf
 	public void buscaVendedorCpf(int cpf) {
 		int i=0;
@@ -85,6 +107,10 @@ public class Filial {
 		}
 	}
 	
+	/**
+	 * busca vendedor por salario e o imprimi no console
+	 * @param salario
+	 */
 	//Busca Vendedor por salario
 	public void buscaVendedorSalario(int salario) {
 		int i=0;
@@ -102,10 +128,9 @@ public class Filial {
 		}
 	}
 	
-	//Busca Venda por nome do CLiente
-	//Busca Venda por nome do Forma de pagamento
-	//Busca Venda por nome de Data de compra
-	
+	/**
+	 * lista todos os brinquedos da filial no console 
+	 */
 	//Listar o estoqueBrinquedo
 	public void listarBrinquedos () {
 		int i = 0;
@@ -115,6 +140,9 @@ public class Filial {
 		}
 	}
 	
+	/**
+	 * lista todos os vendedores da filial no console
+	 */
 	//Listar a listaVendedor
 	public void listarVendedores() {
 		int i=0;
@@ -124,6 +152,9 @@ public class Filial {
 			}
 	}
 	
+	/**
+	 * lista todas as venda da filial no console
+	 */
 	//Listar a listaVenda
 	public void listarVendas() {
 		int i=0;
@@ -132,6 +163,12 @@ public class Filial {
 			i++;
 			}
 	}
+	
+	/**
+	 * Metodo construtor de filial usando como atributo uma String que vai ser o local e um vendedor que vai ser o gerente
+	 * @param l
+	 * @param g
+	 */
 	//construtor
 	public Filial(String l, Vendedor g) {
 		this.local = l;

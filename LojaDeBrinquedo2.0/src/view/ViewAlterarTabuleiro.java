@@ -4,12 +4,20 @@ import java.awt.event.ActionEvent;
 
 import controle.ControleBrinquedo;
 import main.JogoDeTabuleiro;
-
+/**
+ * Classe da tela de alterar tabuleiro 
+ * @author renan
+ *
+ */
 public class ViewAlterarTabuleiro extends ViewCadTabuleiro{
 	private ControleBrinquedo controle = new ControleBrinquedo();
 	int indexBrin = 0;
 	int indexFilial=0;
-	
+	/**
+	 * Construtor da tela que já vem com os campos preenchidos 
+	 * @param index
+	 * @param t
+	 */
 	public ViewAlterarTabuleiro (int index, JogoDeTabuleiro t) {
 		setTitle("Alterar");
 		
@@ -27,6 +35,10 @@ public class ViewAlterarTabuleiro extends ViewCadTabuleiro{
 		getTxTempoMedio().setText(controle.getTabuleiroTempo(t).toString());
 		getFilialField().setSelectedIndex(indexFilial);
 	}
+	
+	/**
+	 * Metodo sobrescrito defininco o que o botao deve fazer qunado ele for acionado nessa tela 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (getConfirmar() == e.getSource()) {

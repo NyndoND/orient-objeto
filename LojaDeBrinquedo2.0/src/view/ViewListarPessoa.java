@@ -20,7 +20,11 @@ import javax.swing.table.DefaultTableModel;
 import controle.ControleCliente;
 import controle.ControleVendedor;
 import main.Cliente;
-
+/**
+ * Classe da tela de listar pessoas 
+ * @author renan
+ *
+ */
 public abstract class ViewListarPessoa extends JInternalFrame implements ActionListener{
 
 	private JButton botaoFil = null;
@@ -36,6 +40,9 @@ public abstract class ViewListarPessoa extends JInternalFrame implements ActionL
 	private ControleCliente controleCli = new ControleCliente();
 	private ControleVendedor controleVen = new ControleVendedor();
 
+	/**
+	 * metodos construtor da tela listar pessoa, que usa todos os atributos da classe 
+	 */
 	public ViewListarPessoa() {
 		super("Listar Pessoa", true, true, true, true);
 		setSize(800,200);

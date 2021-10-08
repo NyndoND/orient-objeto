@@ -1,5 +1,9 @@
 package main;
-
+/**
+ * Classe modelo de brinquedo, reposável por determinar os métodos e o contrutor do objeto
+ * @author renan
+ *
+ */
 public abstract class Brinquedo {
 	protected String nome;
 	protected double valor;
@@ -9,6 +13,16 @@ public abstract class Brinquedo {
 	protected double lucro;
 	protected int codigo;
 	
+	/**
+	 * Construtor de objetos Brinquedo, cria objeto brinquedo de acordo com os atributos recebidos 
+	 * @param nome
+	 * @param valor
+	 * @param descricao
+	 * @param faixaEtaria
+	 * @param comissaoVendedor
+	 * @param lucro
+	 * @param codigo
+	 */
 	//construtor
 	public Brinquedo(String nome, Double valor, String descricao, int faixaEtaria, Double comissaoVendedor,
 			Double lucro, int codigo) {
