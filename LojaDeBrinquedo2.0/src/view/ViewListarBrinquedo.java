@@ -73,28 +73,28 @@ public class ViewListarBrinquedo extends JInternalFrame{
 						if(controle.testaClasseEletronico(indexObj) != null) {
 							Eletronico eletr = controle.testaClasseEletronico(indexObj);
 							ViewAlterarEletronico frame = new ViewAlterarEletronico(indexObj, eletr);
-							DesktopMenu1.addDesktop(frame);
+							DesktopMenu.addDesktop(frame);
 							frame.toFront();
 							frame.setVisible(true);
 							dispose();
 						} else if (controle.testaClasseCarta(indexObj) != null) {
 							JogoDeCarta carta = controle.testaClasseCarta(indexObj);
 							ViewAlterarCarta frame = new ViewAlterarCarta(indexObj,carta);
-							DesktopMenu1.addDesktop(frame);
+							DesktopMenu.addDesktop(frame);
 							frame.toFront();
 							frame.setVisible(true);
 							dispose();
 						} else if (controle.testaClassePelucia(indexObj) != null) {
 							Pelucia pelucia = controle.testaClassePelucia(indexObj);
 							ViewAlterarPelucia frame = new ViewAlterarPelucia(indexObj, pelucia);
-							DesktopMenu1.addDesktop(frame);
+							DesktopMenu.addDesktop(frame);
 							frame.toFront();
 							frame.setVisible(true);
 							dispose();
 						}else if (controle.testaClasseTabuleiro(indexObj) != null) {
 							JogoDeTabuleiro tab = controle.testaClasseTabuleiro(indexObj);
 							ViewAlterarTabuleiro frame = new ViewAlterarTabuleiro(indexObj, tab);
-							DesktopMenu1.addDesktop(frame);
+							DesktopMenu.addDesktop(frame);
 							frame.toFront();
 							frame.setVisible(true);
 							dispose();

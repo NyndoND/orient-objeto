@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import main.Cliente;
-import view.DesktopMenu1;
+import view.DesktopMenu;
 import view.ViewCadCliente;
 
 public class ControleCliente {

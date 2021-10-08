@@ -25,7 +25,7 @@ public class ViewListarVendedor extends ViewListarPessoa{
 	public void actionPerformed(ActionEvent e) {
 		if(getCadastrar()== e.getSource()) {
 			JInternalFrame frame = new ViewCadVendedor();
-			DesktopMenu1.addDesktop(frame);
+			DesktopMenu.addDesktop(frame);
 			frame.toFront();
 			frame.setVisible(true);
 		}
@@ -33,7 +33,7 @@ public class ViewListarVendedor extends ViewListarPessoa{
 			int indexObj = getTabela().getSelectedRow();
 			
 			ViewAlterarVendedor frame = new ViewAlterarVendedor(indexObj);
-			DesktopMenu1.addDesktop(frame);
+			DesktopMenu.addDesktop(frame);
 			frame.toFront();
 			frame.setVisible(true);
 			dispose();
