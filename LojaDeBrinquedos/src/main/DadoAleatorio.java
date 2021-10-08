@@ -43,12 +43,12 @@ public class DadoAleatorio {
 		Venda vd6 = new Venda(v3, c3, jt1, 5, f2);
 		
 		f1.addEstoqueBrinquedo(e1);
-		f1.addEstoqueBrinquedo(e1); //teste para verificar se é possível adicionar objetos iguais 
+//		f1.addEstoqueBrinquedo(e1); //teste para verificar se é possível adicionar objetos iguais 
 		f1.addEstoqueBrinquedo(jc1);
 		f1.addEstoqueBrinquedo(p1);
 		f1.addEstoqueBrinquedo(jt1);
 		f2.addEstoqueBrinquedo(e2);
-		f2.addEstoqueBrinquedo(jc2); // teste para verificar se é possível adicionar objetos iguais 
+//		f2.addEstoqueBrinquedo(jc2); // teste para verificar se é possível adicionar objetos iguais 
 		f2.addEstoqueBrinquedo(jc2);
 		f2.addEstoqueBrinquedo(p2);
 		f2.addEstoqueBrinquedo(jt2);

@@ -24,10 +24,6 @@ public class ViewListarVenda extends JInternalFrame{
 
 	private JTable tabela;
 	private DefaultTableModel model;
-	private JButton cadastrar;
-	private JButton excluir;
-	private JButton alterar;
-	private JPanel botoes;
 	
 	private JButton botaoFil = null;
 	private JToolBar barra = null;
@@ -37,7 +33,7 @@ public class ViewListarVenda extends JInternalFrame{
 	
 	public ViewListarVenda() {
 		super("Listar Brinquedos", true, true, true, true);
-		setSize(800,200);
+		setSize(800,500);
 		setLocation(30, 30);
 		
 		//Adicionando a barra de pesquisa em cima 
@@ -57,36 +53,6 @@ public class ViewListarVenda extends JInternalFrame{
 		barra.add(pesquisa);
 		barra.add(botaoFil);
 		add(barra, BorderLayout.NORTH);
-		
-		//Adicionando os botes na parte de baixo da tela
-				botoes = new JPanel();
-				botoes.setLayout(new GridLayout());
-				
-				cadastrar = new JButton("Cadastrar");
-				cadastrar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						System.out.println("Cadastrou alguem aí");
-					}
-				});
-				
-				alterar = new JButton("Alterar");
-				alterar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						System.out.println("Alterou alguem aí");
-					}
-				});
-				
-				excluir = new JButton("Excluir");
-				excluir.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						System.out.println("Excluiu alguem aí");
-					}
-				});
-				
-				botoes.add(cadastrar);
-				botoes.add(alterar);
-				botoes.add(excluir);
-				add(botoes, BorderLayout.SOUTH);
 				
 				//Criando a tabela 
 				tabela = new JTable(){
